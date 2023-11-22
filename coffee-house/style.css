@@ -473,6 +473,7 @@ h2 {
 .footer {
   max-width: var(--full-size);
   margin: auto;
+  margin-bottom: 2.5rem;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
 }
