@@ -273,13 +273,13 @@ h2 {
   max-width: 30rem;
   max-height: 30rem;
 }
-h3 {
+.title-slide {
   font-family: Inter;
   font-size: 24px;
   font-style: normal;
   font-weight: 600;
   line-height: 125%; /* 30px */
-  text-align: left;
+  text-align: center;
 
   color: var(--text-dark);
   display: block;
@@ -473,11 +473,13 @@ h3 {
 .footer {
   max-width: var(--full-size);
   margin: auto;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
 }
 .main-footer {
   justify-content: space-between;
   display: flex;
-  margin: 0 2.5rem 2.5rem 2.5rem;
+  margin: auto;
   width: 100%;
   background-color: var(--container);
   border-radius: 2.5rem;
@@ -618,6 +620,7 @@ h3 {
   font-weight: 600;
   line-height: 125%; /* 30px */
   margin-bottom: 2.5rem;
+  text-align: left;
 }
 
 .nav-contact {
