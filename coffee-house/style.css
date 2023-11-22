@@ -279,9 +279,9 @@ h3 {
   font-style: normal;
   font-weight: 600;
   line-height: 125%; /* 30px */
+  text-align: left;
 
   color: var(--text-dark);
-  text-align: center;
   display: block;
   margin: auto;
   margin-bottom: 1rem;
@@ -320,4 +320,161 @@ h3 {
   border-radius: 6.25rem;
   height: 0.25rem;
   width: 2.5rem;
+}
+
+/* section3 */
+.section3 {
+  max-width: var(--full-size);
+  margin: 0 2.5rem 6.25rem 2.5rem;
+}
+.resource-title {
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
+  font-family: Inter;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%; /* 75px */
+}
+.all-photo {
+  display: flex;
+  gap: 2.5rem;
+  width: 100%;
+}
+.left-photo,
+.right-photo {
+  display: grid;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+}
+.big-img {
+  border-radius: 1.25rem;
+  display: block;
+  max-height: 36.875rem;
+  max-width: 41.25rem;
+}
+.small-img {
+  border-radius: 1.25rem;
+  display: block;
+  max-height: 26.875rem;
+  max-width: 41.25rem;
+}
+.all-img {
+  border-radius: 1.25rem;
+  height: 100%;
+  width: 100%;
+}
+
+/* section4 */
+.section4 {
+  margin: 0 2.5rem 6.25rem 2.5rem;
+}
+.main-section4 {
+  justify-content: space-between;
+  display: flex;
+  width: 100%;
+}
+.download {
+  max-width: 39.375rem;
+  height: 100%;
+  margin: auto 0 auto 0;
+}
+.download-title {
+  color: var(--text-dark);
+  font-family: Inter;
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%;
+  margin-bottom: 2.5rem;
+  max-width: 38.375rem;
+  margin-left: 0;
+}
+.paragraf-download {
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 24px */
+}
+.download-buttons {
+  gap: 1.25rem;
+  display: flex;
+}
+
+.download-app,
+.download-google {
+  width: 12.5rem;
+  cursor: pointer;
+  transition: 1s;
+  border-radius: 6.25rem;
+  border: 1px solid var(--Dark-border);
+  gap: 0.5rem;
+  display: flex;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  color: var(--text-dark, #403f3d);
+  display: flex;
+  max-width: 200px;
+  padding: 12px 20px;
+  align-items: center;
+}
+.download-app:hover {
+  background-color: var(--container);
+  color: var(--text-Light);
+}
+.download-google:hover {
+  background-color: var(--container);
+  color: var(--text-Light);
+}
+.first-parag {
+  font-family: Inter;
+  font-size: 10px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 140%; /* 14px */
+}
+.second-parag {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+}
+.icon-down {
+  transition: 0.5s;
+}
+.google {
+  transition: 1s;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-image: url(../coffee-house/icon/google.svg);
+}
+.apple {
+  transition: 1s;
+  width: 2.25rem;
+  height: 2.25rem;
+  background-image: url(../coffee-house/icon/apple.svg);
+}
+.google-white {
+  background-image: url(../coffee-house/icon/google-white.svg);
+}
+.apple-white {
+  background-image: url(../coffee-house/icon/apple-white.svg);
+}
+
+/* Visual blok */
+.visual {
+  opacity: 1;
+}
+.visualzero {
+  opacity: 0;
+}
+.hidden {
+  display: none;
 }
