@@ -50,27 +50,27 @@ let coffeeButton = document.querySelector(".upsteirs-but");
 let coffeButtonIcon = document.querySelector(".coffe-sec1");
 let menuspan = document.querySelector(".menu-span");
 
-coffeeButton.addEventListener("mouseover", function () {
-  menuspan.style.marginRight = 2 + "rem";
-  coffeButtonIcon.classList.remove("hidden");
+// coffeeButton.addEventListener("mouseover", function () {
+//   menuspan.style.marginRight = 2 + "rem";
+//   coffeButtonIcon.classList.remove("hidden");
 
-  setTimeout(function () {
-    coffeButtonIcon.classList.add("visual");
-  }, 200);
-  // setTimeout(function () {
-  //   GoogleButtonIcon.classList.add("google-white");
-  // }, 300);
-});
-coffeeButton.addEventListener("mouseout", function () {
-  coffeButtonIcon.classList.remove("visual");
-  setTimeout(function () {
-    coffeButtonIcon.classList.add("hidden");
-  }, 200);
-  menuspan.style.marginRight = 0 + "rem";
-  // setTimeout(function () {
-  //   GoogleButtonIcon.classList.remove("google-white");
-  // }, 300);
-});
+//   setTimeout(function () {
+//     coffeButtonIcon.classList.add("visual");
+//   }, 200);
+//   // setTimeout(function () {
+//   //   GoogleButtonIcon.classList.add("google-white");
+//   // }, 300);
+// });
+// coffeeButton.addEventListener("mouseout", function () {
+//   coffeButtonIcon.classList.remove("visual");
+//   setTimeout(function () {
+//     coffeButtonIcon.classList.add("hidden");
+//   }, 200);
+//   menuspan.style.marginRight = 0 + "rem";
+//   // setTimeout(function () {
+//   //   GoogleButtonIcon.classList.remove("google-white");
+//   // }, 300);
+// });
 
 // slider
 
