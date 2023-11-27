@@ -4,6 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>coffee-house</title>
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
 
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -16,16 +41,16 @@
         <div class="nav-container">
           <ul class="nav">
             <li class="nav-menu">
-              <a class="nav-button" href="#services">Favorite coffee</a>
+              <a class="nav-button" href="#favorite">Favorite coffee</a>
             </li>
             <li class="nav-menu">
-              <a class="nav-button" href="#work">About</a>
+              <a class="nav-button" href="#about">About</a>
             </li>
             <li class="nav-menu">
-              <a class="nav-button" href="#price">Mobile app</a>
+              <a class="nav-button" href="#download">Mobile app</a>
             </li>
             <li class="nav-menu">
-              <a class="nav-button" href="#reviews">Contact us</a>
+              <a class="nav-button" href="#contact">Contact us</a>
             </li>
           </ul>
         </div>
@@ -67,7 +92,9 @@
           </div>
         </div>
       </section>
-      <h2>Choose your <span class="italic">favorite</span> coffee</h2>
+      <h2 id="favorite">
+        Choose your <span class="italic">favorite</span> coffee
+      </h2>
       <section class="section2">
         <div class="main-section2">
           <div class="left-arrow"></div>
@@ -117,7 +144,7 @@
         </div>
       </section>
       <section class="section3">
-        <h3 class="resource-title">
+        <h3 id="about" class="resource-title">
           Resource is
           <span class="italic">the perfect and cozy place</span> where you can
           enjoy a variety of hot beverages, relax, catch up with friends, or get
@@ -153,7 +180,7 @@
       <section class="section4">
         <div class="main-section4">
           <div class="download">
-            <h3 class="download-title">
+            <h3 id="download" class="download-title">
               <span class="italic">Download</span> our apps to start ordering
             </h3>
             <p class="paragraf-download">
@@ -196,7 +223,7 @@
           </div>
         </div>
         <div class="contact-us">
-          <h3 class="contact-title2">Contact us</h3>
+          <h3 id="contact" class="contact-title2">Contact us</h3>
           <ul class="nav-contact">
             <li class="nav-contact-menu">
               <a class="nav-button-contact adress" href="#services"
