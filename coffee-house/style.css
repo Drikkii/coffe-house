@@ -50,6 +50,9 @@ body {
   display: flex;
   align-items: center;
 }
+a {
+  text-decoration: none;
+}
 
 .nav {
   justify-content: center;
@@ -155,6 +158,7 @@ h1 {
   line-height: 150%; /* 24px */
 }
 .section1-button {
+  cursor: pointer;
   position: relative;
   transition: 1s;
   display: flex;
@@ -169,13 +173,14 @@ h1 {
 }
 .coffe-sec1 {
   transition: opacity 0.3s;
-  top: 30%;
+  top: 34%;
   left: 55%;
   position: absolute;
-  display: block;
+  display: flex;
   opacity: 0;
 }
 .up-button {
+  cursor: pointer;
   position: relative;
   transition: 1s;
   display: flex;
@@ -187,6 +192,12 @@ h1 {
   gap: 0.5rem;
   border-radius: 6.25rem;
   background: #403f3d00;
+}
+.up-button:hover > .section1-button > .menu-span {
+  margin-right: 2rem;
+}
+.up-button:hover > .section1-button > .coffe-sec1 {
+  opacity: 1;
 }
 .upsteirs-but {
   z-index: 5;
@@ -204,7 +215,13 @@ h1 {
   background: #403f3d00;
 }
 .menu-span {
-  transition: 0.3s;
+  color: var(--text-dark);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+  transition: 0.5s;
   display: flex;
   margin-right: 0rem;
   height: 4rem;

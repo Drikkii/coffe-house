@@ -104,7 +104,6 @@ body {
   cursor: default;
   position: relative;
   transition: 0.5s;
-  margin: auto;
   font-family: Inter;
   font-size: 16px;
   font-style: normal;
@@ -116,7 +115,7 @@ body {
 .nav-button-menu:before {
   opacity: 1;
   position: absolute;
-  bottom: -4px;
+  bottom: 13px;
   content: " ";
   border-bottom: 2px solid var(--text-dark);
   left: 0%;
@@ -433,7 +432,7 @@ h1 {
 /* section-slide */
 .slide-section {
   position: relative;
-  transition: 0.5s;
+  transition: 0.2s;
   margin: 0 2.5rem 6.25rem 2.5rem;
   max-width: var(--full-size);
   height: 65.75rem;

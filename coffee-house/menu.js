@@ -42,8 +42,8 @@ button3.addEventListener("mouseout", function () {
 // button click
 
 function closeds() {
-  if (1) {
-    2;
+  if (coffee.classList.contains("hidden")) {
+    slideSection.classList.remove("hight-slide");
   }
 }
 button1.addEventListener("click", function () {
@@ -55,7 +55,7 @@ button1.addEventListener("click", function () {
   icon3.classList.remove("icon-background-stay");
   tea.classList.remove("visual");
   dessert.classList.remove("visual");
-  slideSection.classList.remove("hight-slide");
+
   setTimeout(function () {
     tea.classList.add("hidden");
   }, 500);
@@ -64,9 +64,12 @@ button1.addEventListener("click", function () {
   }, 500);
   setTimeout(function () {
     coffee.classList.remove("hidden");
-  }, 200);
+  }, 300);
   setTimeout(function () {
     coffee.classList.remove("visualzero");
+  }, 300);
+  setTimeout(function () {
+    slideSection.classList.remove("hight-slide");
   }, 300);
 });
 
@@ -106,9 +109,10 @@ button3.addEventListener("click", function () {
   icon1.classList.remove("icon-background-stay");
   menu1.classList.remove("button-background");
   icon1.classList.remove("icon-background");
+  slideSection.classList.remove("hight-slide");
   tea.classList.remove("visual");
   coffee.classList.add("visualzero");
-  slideSection.classList.remove("hight-slide");
+
   setTimeout(function () {
     tea.classList.add("hidden");
   }, 500);
@@ -120,6 +124,9 @@ button3.addEventListener("click", function () {
   }, 200);
   setTimeout(function () {
     dessert.classList.add("visual");
+  }, 300);
+  setTimeout(function () {
+    slideSection.classList.remove("hight-slide");
   }, 300);
 });
 
