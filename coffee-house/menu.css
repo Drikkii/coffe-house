@@ -101,6 +101,7 @@ body {
   color: var(--text-dark, #403f3d);
 }
 .nav-button-menu {
+  cursor: default;
   position: relative;
   transition: 0.5s;
   margin: auto;
@@ -834,6 +835,7 @@ h1 {
   background-color: var(--body);
 }
 .button-background-stay {
+  cursor: default;
   color: var(--text-Light);
   background-color: var(--container);
 }
