@@ -3,8 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Menu</title>
     <link rel="stylesheet" href="menu.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="favicon/favicon-16x16.png"
+    />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link
+      rel="mask-icon"
+      href="favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <header class="header">
@@ -15,24 +40,28 @@
         <div class="nav-container">
           <ul class="nav">
             <li class="nav-menu">
-              <a class="nav-button" href="#services">Favorite coffee</a>
+              <a class="nav-button" href="index.html#favorite"
+                >Favorite coffee</a
+              >
             </li>
             <li class="nav-menu">
-              <a class="nav-button" href="#work">About</a>
+              <a class="nav-button" href="index.html#about">About</a>
             </li>
             <li class="nav-menu">
-              <a class="nav-button" href="#price">Mobile app</a>
+              <a class="nav-button" href="index.html#download">Mobile app</a>
             </li>
             <li class="nav-menu">
-              <a class="nav-button" href="#reviews">Contact us</a>
+              <a class="nav-button" href="#contact-us-menu">Contact us</a>
             </li>
           </ul>
         </div>
         <div class="menu-button">
-          <a class="nav-button-menu" href=""
-            >Меню
-            <img class="coffe-icon" src="icon/coffee-cup.svg" alt="cup-logo"
-          /></a>
+          Меню
+          <img
+            class="nav-button-menu coffe-icon"
+            src="icon/coffee-cup.svg"
+            alt="cup-logo"
+          />
         </div>
       </div>
     </header>
@@ -455,7 +484,7 @@
     <footer class="footer">
       <div class="main-footer">
         <div class="icon-contact">
-          <h2 class="contact-title">
+          <h2 id="contact-us-menu" class="contact-title">
             Sip, Savor, Smile. <span class="italic">It’s coffee time!</span>
           </h2>
           <div class="contact-button">
@@ -468,12 +497,15 @@
           <h3 class="contact-title2">Contact us</h3>
           <ul class="nav-contact">
             <li class="nav-contact-menu">
-              <a class="nav-button-contact adress" href="#services"
+              <a
+                class="nav-button-contact adress"
+                href="https://www.google.com/maps/d/viewer?mid=1KLWCZGGku4vVoXHRPF17GcDh5Zk&hl=en&ll=38.8636465731362%2C-76.74578586334843&z=10"
+                target="_blank"
                 ><img src="icon/pin-alt.svg" alt="alt" />8558 Green Rd., LA</a
               >
             </li>
             <li class="nav-contact-menu">
-              <a class="nav-button-contact number" href="#work"
+              <a class="nav-button-contact number" href="tel:+1 (603) 555-0123"
                 ><img src="icon/phone.svg" alt="phone" />+1 (603) 555-0123</a
               >
             </li>
