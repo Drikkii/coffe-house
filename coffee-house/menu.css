@@ -771,7 +771,7 @@ h1 {
   font-weight: 600;
   line-height: 140%; /* 14px */
 }
-.close {
+.close {cursor: pointer;
   transition: 0.5s;
   background-color: var(--body);
   width: 27.375rem;

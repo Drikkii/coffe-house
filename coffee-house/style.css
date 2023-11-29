@@ -90,8 +90,7 @@ a {
   width: 100%;
   left: 0%;
 }
-.coffe-icon {
-}
+
 .menu-button {
   gap: 0.5rem;
   display: flex;
@@ -454,6 +453,8 @@ h2 {
   width: 41.25rem;
 }
 .photo-download {
+  display: flex;
+  align-items: end;
   width: 50%;
 }
 .all-img {
@@ -479,7 +480,7 @@ h2 {
   margin: 0 2.5rem 6.25rem 2.5rem;
 }
 .main-section4 {
-  justify-content: space-between;
+  gap: 100px;
   display: flex;
   width: 100%;
 }

@@ -50,28 +50,6 @@ let coffeeButton = document.querySelector(".upsteirs-but");
 let coffeButtonIcon = document.querySelector(".coffe-sec1");
 let menuspan = document.querySelector(".menu-span");
 
-// coffeeButton.addEventListener("mouseover", function () {
-//   menuspan.style.marginRight = 2 + "rem";
-//   coffeButtonIcon.classList.remove("hidden");
-
-//   setTimeout(function () {
-//     coffeButtonIcon.classList.add("visual");
-//   }, 200);
-//   // setTimeout(function () {
-//   //   GoogleButtonIcon.classList.add("google-white");
-//   // }, 300);
-// });
-// coffeeButton.addEventListener("mouseout", function () {
-//   coffeButtonIcon.classList.remove("visual");
-//   setTimeout(function () {
-//     coffeButtonIcon.classList.add("hidden");
-//   }, 200);
-//   menuspan.style.marginRight = 0 + "rem";
-//   // setTimeout(function () {
-//   //   GoogleButtonIcon.classList.remove("google-white");
-//   // }, 300);
-// });
-
 // slider
 
 let slide = document.querySelector(".slide");
@@ -114,8 +92,24 @@ Pag3.addEventListener("click", function () {
 
 let number = 0;
 let score = 0;
+let autoplayInterval = null;
 
-rightArrow.addEventListener("click", function () {
+// auto
+
+function startAutoplay() {
+  if (!autoplayInterval) {
+    autoplayInterval = setInterval(next, 5000);
+  }
+}
+
+function stopAutoplay() {
+  clearInterval(autoplayInterval);
+  autoplayInterval = null;
+}
+// slide prev - next
+
+let next = () => {
+  stopAutoplay();
   number = number + mainSliderWidth;
   mainSlider.style.left = -number + "px";
   if (number > mainSliderWidth * 2) {
@@ -132,8 +126,10 @@ rightArrow.addEventListener("click", function () {
   } else if (number == mainSliderWidth * 2) {
     Pag3.classList.add("color-pag");
   }
-});
-leftArrow.addEventListener("click", function () {
+  startAutoplay();
+};
+let prev = () => {
+  stopAutoplay();
   number = number - mainSliderWidth;
   mainSlider.style.left = -number + "px";
   if (number < 0) {
@@ -150,6 +146,11 @@ leftArrow.addEventListener("click", function () {
   } else if (number == mainSliderWidth * 2) {
     Pag3.classList.add("color-pag");
   }
-});
+  startAutoplay();
+};
 
-// pagination slider
+rightArrow.addEventListener("click", next);
+leftArrow.addEventListener("click", prev);
+
+// auto
+startAutoplay();
