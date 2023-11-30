@@ -1,5 +1,4 @@
 // Download button
-
 // apple
 let AppButton = document.querySelector(".download-app");
 let AppButtonIcon = document.querySelector(".apple");
@@ -57,12 +56,19 @@ let leftArrow = document.querySelector(".left-arrow");
 let rightArrow = document.querySelector(".right-arrow");
 let mainSliderWidth = document.querySelector(".main-slider").clientWidth;
 let mainSlider = document.querySelector(".main-slider");
+let mainSlider2 = document.querySelectorAll(".img-slide-size");
+let mainSlider3 = document.querySelector(".up-main-slider").clientWidth;
+let mainSlider4 = document.querySelector(".img-slide");
 
 // pagination
 let AllPag = document.querySelectorAll(".pagin");
 let Pag1 = document.querySelector(".pag1");
 let Pag2 = document.querySelector(".pag2");
 let Pag3 = document.querySelector(".pag3");
+
+let number = 0;
+let score = 0;
+let autoplayInterval = null;
 
 Pag1.addEventListener("click", function () {
   AllPag.forEach(function (element) {
@@ -77,7 +83,7 @@ Pag2.addEventListener("click", function () {
     element.classList.remove("color-pag");
   });
   Pag2.classList.add("color-pag");
-  number = mainSliderWidth;
+  number = mainSlider3;
   mainSlider.style.left = -number + "px";
 });
 Pag3.addEventListener("click", function () {
@@ -85,20 +91,19 @@ Pag3.addEventListener("click", function () {
     element.classList.remove("color-pag");
   });
   Pag3.classList.add("color-pag");
-  number = mainSliderWidth * 2;
+  number = mainSlider3 * 2;
   mainSlider.style.left = -number + "px";
 });
 // slide
-
-let number = 0;
-let score = 0;
-let autoplayInterval = null;
 
 // auto
 
 function startAutoplay() {
   if (!autoplayInterval) {
     autoplayInterval = setInterval(next, 5000);
+    // mainSlider2.forEach(function (mainSlider2) {
+    //   mainSlider2.style.width = mainSlider3 + "px"
+    // });
   }
 }
 
@@ -110,9 +115,9 @@ function stopAutoplay() {
 
 let next = () => {
   stopAutoplay();
-  number = number + mainSliderWidth;
+  number = number + mainSlider3;
   mainSlider.style.left = -number + "px";
-  if (number > mainSliderWidth * 2) {
+  if (number > mainSlider3 * 2) {
     number = 0;
     mainSlider.style.left = number + "px";
   }
@@ -121,19 +126,19 @@ let next = () => {
   });
   if (number == 0) {
     Pag1.classList.add("color-pag");
-  } else if (number == mainSliderWidth) {
+  } else if (number == mainSlider3) {
     Pag2.classList.add("color-pag");
-  } else if (number == mainSliderWidth * 2) {
+  } else if (number == mainSlider3 * 2) {
     Pag3.classList.add("color-pag");
   }
   startAutoplay();
 };
 let prev = () => {
   stopAutoplay();
-  number = number - mainSliderWidth;
+  number = number - mainSlider3;
   mainSlider.style.left = -number + "px";
   if (number < 0) {
-    number = mainSliderWidth * 2;
+    number = mainSlider3 * 2;
     mainSlider.style.left = -number + "px";
   }
   AllPag.forEach(function (element) {
@@ -141,9 +146,9 @@ let prev = () => {
   });
   if (number == 0) {
     Pag1.classList.add("color-pag");
-  } else if (number == mainSliderWidth) {
+  } else if (number == mainSlider3) {
     Pag2.classList.add("color-pag");
-  } else if (number == mainSliderWidth * 2) {
+  } else if (number == mainSlider3 * 2) {
     Pag3.classList.add("color-pag");
   }
   startAutoplay();
@@ -154,3 +159,17 @@ leftArrow.addEventListener("click", prev);
 
 // auto
 startAutoplay();
+
+// adaptiv
+window.addEventListener("resize", function () {
+  stopAutoplay();
+  AllPag.forEach(function (element) {
+    element.classList.remove("color-pag");
+  });
+  Pag1.classList.add("color-pag");
+  mainSlider3 = document.querySelector(".up-main-slider").clientWidth;
+  mainSlider.style.left = 0 + "px";
+  number = 0;
+  startAutoplay();
+  return number;
+});
