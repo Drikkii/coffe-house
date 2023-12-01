@@ -15,24 +15,30 @@ let dessert = document.querySelector(".section-dessert");
 let slideSection = document.querySelector(".slide-section");
 
 button1.addEventListener("mouseover", function () {
-  menu1.classList.add("button-background");
-  icon1.classList.add("icon-background");
+  if (window.innerWidth >= 768) {
+    menu1.classList.add("button-background");
+    icon1.classList.add("icon-background");
+  }
 });
 button1.addEventListener("mouseout", function () {
   menu1.classList.remove("button-background");
   icon1.classList.remove("icon-background");
 });
 button2.addEventListener("mouseover", function () {
-  menu2.classList.add("button-background");
-  icon2.classList.add("icon-background");
+  if (window.innerWidth >= 768) {
+    menu2.classList.add("button-background");
+    icon2.classList.add("icon-background");
+  }
 });
 button2.addEventListener("mouseout", function () {
   menu2.classList.remove("button-background");
   icon2.classList.remove("icon-background");
 });
 button3.addEventListener("mouseover", function () {
-  menu3.classList.add("button-background");
-  icon3.classList.add("icon-background");
+  if (window.innerWidth >= 768) {
+    menu3.classList.add("button-background");
+    icon3.classList.add("icon-background");
+  }
 });
 button3.addEventListener("mouseout", function () {
   menu3.classList.remove("button-background");
@@ -170,5 +176,51 @@ backGrey.addEventListener("click", function () {
       coffeIrish.classList.add("hidden");
       backGrey.classList.add("hidden");
     }, 300);
+  }
+});
+
+// burger
+
+let menuBtn = document.querySelector(".menu-burger");
+let menu = document.querySelector(".slide-menu-burger");
+let lock = document.querySelector("body");
+let LogoMenu = document.querySelector(".dropMenu");
+
+const toggleMenu = () => {
+  lock.classList.toggle("lock");
+  menu.classList.toggle("active");
+  menuBtn.classList.remove("active");
+};
+
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  lock.classList.toggle("lock");
+  menu.classList.toggle("active");
+  menuBtn.classList.toggle("active");
+});
+
+document.addEventListener("click", (e) => {
+  let target = e.target;
+  let its_menu = target == menu || menu.contains(target);
+  let its_menuBtn = target == menuBtn;
+  let menu_is_active = menu.classList.contains("active");
+
+  if (!its_menu && !its_menuBtn && menu_is_active) {
+    toggleMenu();
+  }
+});
+menu.addEventListener("click", function (e) {
+  if (e.target.matches("a")) {
+    menu.classList.remove("active");
+    menuBtn.classList.remove("active");
+    lock.classList.remove("lock");
+  }
+});
+
+window.addEventListener("resize", function () {
+  if (window.innerWidth >= 768) {
+    lock.classList.remove("lock");
+    menu.classList.remove("active");
+    menuBtn.classList.remove("active");
   }
 });

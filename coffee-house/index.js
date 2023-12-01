@@ -4,21 +4,25 @@ let AppButton = document.querySelector(".download-app");
 let AppButtonIcon = document.querySelector(".apple");
 
 AppButton.addEventListener("mouseover", function () {
-  AppButtonIcon.classList.add("visualzero");
-  setTimeout(function () {
-    AppButtonIcon.classList.remove("visualzero");
-  }, 300);
-  setTimeout(function () {
-    AppButtonIcon.classList.add("apple-white");
-  }, 300);
+  if (window.innerWidth >= 768) {
+    AppButtonIcon.classList.add("visualzero");
+    setTimeout(function () {
+      AppButtonIcon.classList.remove("visualzero");
+    }, 300);
+    setTimeout(function () {
+      AppButtonIcon.classList.add("apple-white");
+    }, 300);
+  }
 });
 AppButton.addEventListener("mouseout", function () {
-  setTimeout(function () {
-    AppButtonIcon.classList.remove("visualzero");
-  }, 300);
-  setTimeout(function () {
-    AppButtonIcon.classList.remove("apple-white");
-  }, 300);
+  if (window.innerWidth >= 768) {
+    setTimeout(function () {
+      AppButtonIcon.classList.remove("visualzero");
+    }, 300);
+    setTimeout(function () {
+      AppButtonIcon.classList.remove("apple-white");
+    }, 300);
+  }
 });
 
 // google
@@ -26,15 +30,29 @@ let GoogleButton = document.querySelector(".download-google");
 let GoogleButtonIcon = document.querySelector(".google");
 
 GoogleButton.addEventListener("mouseover", function () {
-  GoogleButtonIcon.classList.add("visualzero");
-  setTimeout(function () {
-    GoogleButtonIcon.classList.remove("visualzero");
-  }, 300);
-  setTimeout(function () {
-    GoogleButtonIcon.classList.add("google-white");
-  }, 300);
+  if (window.innerWidth >= 768) {
+    GoogleButtonIcon.classList.add("visualzero");
+    setTimeout(function () {
+      GoogleButtonIcon.classList.remove("visualzero");
+    }, 300);
+    setTimeout(function () {
+      GoogleButtonIcon.classList.add("google-white");
+    }, 300);
+  }
 });
+
 GoogleButton.addEventListener("mouseout", function () {
+  if (window.innerWidth >= 768) {
+    setTimeout(function () {
+      GoogleButtonIcon.classList.remove("visualzero");
+    }, 300);
+    setTimeout(function () {
+      GoogleButtonIcon.classList.remove("google-white");
+    }, 300);
+  }
+});
+GoogleButton.addEventListener("touchstart", function (e) {
+  TouchStart(e);
   setTimeout(function () {
     GoogleButtonIcon.classList.remove("visualzero");
   }, 300);
@@ -42,6 +60,14 @@ GoogleButton.addEventListener("mouseout", function () {
     GoogleButtonIcon.classList.remove("google-white");
   }, 300);
 });
+// GoogleButton.addEventListener("touchstart", function () {
+//   setTimeout(function () {
+//     GoogleButtonIcon.classList.remove("visualzero");
+//   }, 300);
+//   setTimeout(function () {
+//     GoogleButtonIcon.classList.remove("google-white");
+//   }, 300);
+// });
 
 // Menu coffe cup visual
 
@@ -172,4 +198,50 @@ window.addEventListener("resize", function () {
   number = 0;
   startAutoplay();
   return number;
+});
+
+// burger
+
+let menuBtn = document.querySelector(".menu-burger");
+let menu = document.querySelector(".slide-menu-burger");
+let lock = document.querySelector("body");
+let LogoMenu = document.querySelector(".dropMenu");
+
+const toggleMenu = () => {
+  lock.classList.toggle("lock");
+  menu.classList.toggle("active");
+  menuBtn.classList.remove("active");
+};
+
+menuBtn.addEventListener("click", (e) => {
+  e.stopPropagation();
+  lock.classList.toggle("lock");
+  menu.classList.toggle("active");
+  menuBtn.classList.toggle("active");
+});
+
+document.addEventListener("click", (e) => {
+  let target = e.target;
+  let its_menu = target == menu || menu.contains(target);
+  let its_menuBtn = target == menuBtn;
+  let menu_is_active = menu.classList.contains("active");
+
+  if (!its_menu && !its_menuBtn && menu_is_active) {
+    toggleMenu();
+  }
+});
+menu.addEventListener("click", function (e) {
+  if (e.target.matches("a")) {
+    menu.classList.remove("active");
+    menuBtn.classList.remove("active");
+    lock.classList.remove("lock");
+  }
+});
+
+window.addEventListener("resize", function () {
+  if (window.innerWidth >= 768) {
+    lock.classList.remove("lock");
+    menu.classList.remove("active");
+    menuBtn.classList.remove("active");
+  }
 });
