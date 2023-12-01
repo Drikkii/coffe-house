@@ -131,6 +131,114 @@ body {
   left: 0%;
 }
 
+/* Burger menu */
+.menu-burger {
+  cursor: pointer;
+  margin: 5px 0px 0px 40px;
+  display: none;
+  width: 44px;
+  height: 44px;
+  position: relative;
+  z-index: 100;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 1px solid var(--text-dark);
+}
+
+.menu-burger span {
+  width: 16px;
+  height: 2px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--text-dark);
+  transition: all 0.5s;
+}
+
+.menu-burger span:nth-of-type(1) {
+  top: calc(65% - 10px);
+}
+.menu-burger span:nth-of-type(2) {
+  top: calc(35% + 10px);
+}
+
+/* Меняем гамбургер иконку, когда меню открыто */
+
+.menu-burger.active span:nth-of-type(1) {
+  top: 60%;
+  transform: translate(-50%, -6px) rotate(45deg);
+}
+.menu-burger.active span:nth-of-type(2) {
+  top: 60%;
+  transform: translate(-50%, -6px) rotate(-45deg);
+}
+
+/* Меню, которое будет появляться */
+.slide-menu-burger {
+  z-index: 100;
+  overflow: auto;
+  display: flex;
+  position: fixed;
+  top: 90px;
+  right: 0;
+  width: 100vw;
+  max-height: 100%;
+  padding: 3.75rem 2.5rem 3.75rem 2.5rem;
+  background: var(--body);
+  transform: translateX(130%);
+  transition: transform 0.5s;
+}
+
+.slide-menu-burger.active {
+  transform: translateX(0);
+}
+
+.slide-menu-burger li {
+  list-style-type: none;
+}
+.nav-burger {
+  overflow: hidden;
+  flex-wrap: wrap;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+  align-items: center;
+  gap: 3.75rem;
+  height: 100vh;
+  width: 100%;
+  padding: 0 2.5rem 3.75rem 2.5rem;
+}
+.top-padding-10-burger {
+  padding-top: 10px;
+}
+.burger-contact {
+  margin-bottom: 2.5rem;
+}
+.navigation-burger {
+  height: 100%;
+  display: block;
+  width: 100%;
+}
+
+.nav-button-burger {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-family: Inter;
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 125%; /* 40px */
+  transition: 0.5s;
+}
+.cup-burger {
+  margin-left: 1rem;
+  width: 2.5rem;
+  height: 2.5rem;
+}
+
 /* Main */
 main {
   margin: auto;
@@ -879,6 +987,22 @@ h1 {
   } */
 }
 @media (max-width: 1090px) {
+  .footer {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+  .info-container {
+    padding-top: 1.2rem;
+  }
+  .section-coffee,
+  .section-dessert,
+  .section-tea {
+    gap: 1.6rem;
+  }
+
+  h1 {
+    width: 99%;
+  }
   .close {
     width: 19.125rem;
   }
@@ -916,7 +1040,45 @@ h1 {
     height: 129rem;
   } */
 }
+@media (pointer: coarse) {
+  .nav-button-contact:hover:before {
+    display: none !important;
+  }
+  .twitter::before {
+    display: none !important;
+  }
+  .instagram::before {
+    display: none !important;
+  }
+  .facebook::before {
+    display: none !important;
+  }
+  .container:hover > .img-container > .img-scale {
+    transform: scale(110%);
+  }
+  .container:hover {
+    background-size: 100%;
+  }
+}
 @media (max-width: 767px) {
+  .nav-button-contact:hover:before {
+    display: none !important;
+  }
+  .twitter::before {
+    display: none !important;
+  }
+  .instagram::before {
+    display: none !important;
+  }
+  .facebook::before {
+    display: none !important;
+  }
+  .container:hover > .img-container > .img-scale {
+    transform: scale(110%);
+  }
+  .container:hover {
+    background-size: 100%;
+  }
   .discont {
     width: 99%;
   }
@@ -981,4 +1143,26 @@ h1 {
   h1 {
     padding-left: 1px;
   }
+}
+
+@media (max-width: 768px) {
+  .menu-burger {
+    display: flex;
+  }
+
+  .menu-button {
+    display: none;
+  }
+  .nav-container {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  .slide-menu-burger {
+    padding: 3.75rem 1rem 3.75rem 1rem;
+  }
+}
+.nav-burger {
+  padding: 0 1rem 3.75rem 1rem;
 }
