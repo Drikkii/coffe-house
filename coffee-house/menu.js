@@ -53,6 +53,35 @@ function closeds() {
   }
 }
 button1.addEventListener("click", function () {
+  if (window.innerWidth >= 1061) {
+    coffee.style.overflow = "visible";
+    slideSection.style.height = 98.625 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+  if (window.innerWidth <= 1061) {
+    coffee.style.overflow = "hidden";
+    slideSection.style.height = 65.75 + "rem";
+    refresh.style.display = "flex";
+    slideSection.style.marginBottom = 2 + "rem";
+  }
+  if (window.innerWidth <= 677) {
+    coffee.style.overflow = "hidden";
+    coffee.style.maxHeight = 135 + "rem";
+    slideSection.style.height = 135 + "rem";
+    refresh.style.display = "flex";
+    slideSection.style.marginBottom = 2 + "rem";
+  }
+  if (window.innerWidth >= 1440) {
+    coffee.style.overflow = "visible";
+    slideSection.style.height = 65.75 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+  // slideSection.style.marginBottom = 2 + "rem";
+  // slideSection.style.height = 65.75 + "rem";
+  // coffee.classList.remove("overflow");
+
   menu1.classList.add("button-background-stay");
   icon1.classList.add("icon-background-stay");
   menu2.classList.remove("button-background-stay");
@@ -104,9 +133,60 @@ button2.addEventListener("click", function () {
   setTimeout(function () {
     tea.classList.add("visual");
   }, 300);
+
+  if (window.innerWidth >= 1061) {
+    tea.style.overflow = "visible";
+    slideSection.style.height = 65.75 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+  if (window.innerWidth <= 1061) {
+    tea.style.overflow = "hidden";
+    slideSection.style.height = 65.75 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+  if (window.innerWidth <= 677) {
+    tea.style.overflow = "hidden";
+    tea.style.maxHeight = 132 + "rem";
+    slideSection.style.height = 131.5 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+  if (window.innerWidth >= 1440) {
+    slideSection.style.height = 32.875 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
 });
 
 button3.addEventListener("click", function () {
+  if (window.innerWidth >= 1061) {
+    dessert.style.overflow = "visible";
+    slideSection.style.height = 98.625 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+  if (window.innerWidth <= 1061) {
+    dessert.style.overflow = "hidden";
+    slideSection.style.height = 65.75 + "rem";
+    refresh.style.display = "flex";
+    slideSection.style.marginBottom = 2 + "rem";
+  }
+  if (window.innerWidth <= 677) {
+    dessert.style.overflow = "hidden";
+    dessert.style.maxHeight = 135 + "rem";
+    slideSection.style.height = 135 + "rem";
+    refresh.style.display = "flex";
+    slideSection.style.marginBottom = 2 + "rem";
+  }
+  if (window.innerWidth >= 1440) {
+    dessert.style.overflow = "visible";
+    slideSection.style.height = 65.75 + "rem";
+    refresh.style.display = "none";
+    slideSection.style.marginBottom = 6.25 + "rem";
+  }
+
   menu3.classList.add("button-background-stay");
   icon3.classList.add("icon-background-stay");
   menu2.classList.remove("button-background-stay");
@@ -134,6 +214,29 @@ button3.addEventListener("click", function () {
   setTimeout(function () {
     slideSection.classList.remove("hight-slide");
   }, 300);
+});
+
+// refresh
+
+let refresh = document.querySelector(".refresh");
+
+refresh.addEventListener("click", function () {
+  refresh.style.display = "none";
+  let slide = slideSection.clientHeight;
+  coffee.style.overflow = "visible";
+  tea.style.overflow = "visible";
+  dessert.style.overflow = "visible";
+  setTimeout(function () {
+    coffee.classList.add("overflow");
+  }, 100);
+  setTimeout(function () {
+    tea.classList.add("overflow");
+  }, 100);
+  setTimeout(function () {
+    dessert.classList.add("overflow");
+  }, 100);
+  slideSection.style.height = slide * 2 + "px";
+  slideSection.style.marginBottom = 6.25 + "rem";
 });
 
 // modal
@@ -222,5 +325,98 @@ window.addEventListener("resize", function () {
     lock.classList.remove("lock");
     menu.classList.remove("active");
     menuBtn.classList.remove("active");
+  }
+  if (
+    (window.innerWidth >= 678 &&
+      menu1.classList.contains("button-background-stay")) ||
+    (window.innerWidth >= 678 && dessert.classList.contains("visual"))
+  ) {
+    coffee.style.overflow = "hidden";
+    coffee.style.maxHeight = 66 + "rem";
+    tea.style.overflow = "hidden";
+    dessert.style.maxHeight = 66 + "rem";
+    dessert.style.overflow = "hidden";
+    slideSection.style.height = 65.75 + "rem";
+    slideSection.style.marginBottom = 2 + "rem";
+    refresh.style.display = "flex";
+  }
+  if (
+    (window.innerWidth >= 1061 &&
+      menu1.classList.contains("button-background-stay")) ||
+    (window.innerWidth >= 1061 && dessert.classList.contains("visual"))
+  ) {
+    coffee.style.overflow = "visible";
+    tea.style.overflow = "visible";
+    dessert.style.overflow = "visible";
+    slideSection.style.height = 98.625 + "rem";
+    slideSection.style.marginBottom = 6.25 + "rem";
+    refresh.style.display = "none";
+  }
+  if (window.innerWidth >= 1061 && tea.classList.contains("visual")) {
+    coffee.style.overflow = "visible";
+    tea.style.overflow = "visible";
+    dessert.style.overflow = "visible";
+    slideSection.style.height = 65.75 + "rem";
+    slideSection.style.marginBottom = 6.25 + "rem";
+    refresh.style.display = "none";
+  }
+
+  if (
+    (window.innerWidth <= 1060 &&
+      menu1.classList.contains("button-background-stay")) ||
+    (window.innerWidth <= 1060 && dessert.classList.contains("visual"))
+  ) {
+    coffee.style.overflow = "hidden";
+    tea.style.overflow = "hidden";
+    dessert.style.overflow = "hidden";
+    slideSection.style.height = 65.75 + "rem";
+    slideSection.style.marginBottom = 2 + "rem";
+    refresh.style.display = "flex";
+  }
+
+  if (window.innerWidth <= 1060 && tea.classList.contains("visual")) {
+    coffee.style.overflow = "hidden";
+    tea.style.overflow = "hidden";
+    dessert.style.overflow = "hidden";
+    slideSection.style.height = 65.75 + "rem";
+    slideSection.style.marginBottom = 6.25 + "rem";
+    refresh.style.display = "none";
+  }
+  if (
+    (window.innerWidth <= 677 &&
+      menu1.classList.contains("button-background-stay")) ||
+    (window.innerWidth <= 677 && dessert.classList.contains("visual"))
+  ) {
+    coffee.style.overflow = "hidden";
+    coffee.style.maxHeight = 135 + "rem";
+    tea.style.overflow = "hidden";
+    dessert.style.maxHeight = 135 + "rem";
+    dessert.style.overflow = "hidden";
+    slideSection.style.height = 135 + "rem";
+    slideSection.style.marginBottom = 2 + "rem";
+    refresh.style.display = "flex";
+  }
+  if (window.innerWidth <= 677 && tea.classList.contains("visual")) {
+    tea.style.overflow = "hidden";
+    tea.style.maxHeight = 132 + "rem";
+    slideSection.style.height = 131.5 + "rem";
+    slideSection.style.marginBottom = 6.25 + "rem";
+    refresh.style.display = "none";
+  }
+  if (
+    (window.innerWidth >= 1440 &&
+      menu1.classList.contains("button-background-stay")) ||
+    (window.innerWidth >= 1440 && dessert.classList.contains("visual"))
+  ) {
+    slideSection.style.height = 65.75 + "rem";
+    coffee.style.overflow = "visible";
+    tea.style.overflow = "visible";
+    dessert.style.overflow = "visible";
+  }
+  if (window.innerWidth >= 1440 && tea.classList.contains("visual")) {
+    slideSection.style.height = 32.875 + "rem";
+    coffee.style.overflow = "visible";
+    tea.style.overflow = "visible";
+    dessert.style.overflow = "visible";
   }
 });
