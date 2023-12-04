@@ -988,6 +988,9 @@ h2 {
   }
 }
 @media (pointer: coarse) {
+  .all-img {
+    transform: scale(100%);
+  }
   .right-arrow::before {
     display: none !important;
   }
@@ -1035,9 +1038,6 @@ h2 {
   .download-google:hover {
     background-color: unset;
     color: unset;
-  }
-  .all-img:hover {
-    transform: scale(120%);
   }
   .up-button:hover > .section1-button > .menu-span {
     margin-right: 0;
