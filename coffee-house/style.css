@@ -431,7 +431,7 @@ h2 {
 }
 .right-arrow::before {
   border-radius: 6.25rem;
-  background-color: var(--container);
+  /* background-color: var(--container); */
   background-image: url(../coffee-house/icon/arrow-right-white.svg);
   background-repeat: no-repeat;
   background-position: center;
@@ -988,6 +988,27 @@ h2 {
   }
 }
 @media (pointer: coarse) {
+  .right-arrow::before {
+    display: none !important;
+  }
+  .left-arrow::before {
+    display: none !important;
+  }
+  .left-arrow:hover {
+    background-color: unset;
+  }
+  .right-arrow:hover {
+    background-color: unset;
+  }
+  .nav-button:hover:before {
+    width: 0%;
+  }
+
+  .nav-button-contact:hover:before {
+    opacity: 0;
+    width: 100%;
+    left: 0%;
+  }
   .menu-span {
     margin-right: 2.5rem;
   }

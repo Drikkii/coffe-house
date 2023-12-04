@@ -965,6 +965,9 @@ h1 {
 .overflow {
   overflow: visible;
 }
+.overflow-hide {
+  overflow: hidden;
+}
 
 .icon-background {
   background-color: var(--body);
@@ -983,7 +986,17 @@ h1 {
 }
 
 /* media */
-
+@media (max-width: 1440px) {
+  .section-coffee {
+    overflow: visible;
+  }
+  .section-dessert {
+    overflow: visible;
+  }
+  .slide-section {
+    height: 97.375rem;
+  }
+}
 @media (max-width: 1439px) {
   .icon-contact {
     margin-bottom: 6.25rem;
@@ -1004,9 +1017,6 @@ h1 {
     margin-bottom: 0;
     padding: 0 1rem 2.5rem 1rem;
   }
-  /* .slide-section {
-    height: 97.375rem;
-  } */
 }
 @media (max-width: 1090px) {
   .footer {
@@ -1061,8 +1071,20 @@ h1 {
   .slide-section {
     margin-bottom: 2rem;
   }
+  .icon-contact {
+    margin-bottom: 5rem;
+  }
 }
 @media (pointer: coarse) {
+  .nav-button:hover:before {
+    width: 0%;
+  }
+
+  .nav-button-contact:hover:before {
+    opacity: 0;
+    width: 100%;
+    left: 0%;
+  }
   .nav-button-contact:hover:before {
     display: none !important;
   }
@@ -1190,7 +1212,36 @@ h1 {
 }
 
 @media (max-width: 1060px) {
+  .slide-section {
+    height: 65.75rem;
+  }
+
   .refresh {
     display: flex;
+  }
+  .section-coffee {
+    overflow: hidden;
+  }
+  .section-dessert {
+    overflow: hidden;
+  }
+}
+@media (max-width: 678px) {
+  .icon-contact {
+    margin-bottom: 2.2rem;
+  }
+  .contact-us {
+    padding-top: 0;
+  }
+  .section-coffee {
+    gap: 2.5rem;
+    max-height: 135rem;
+  }
+  .section-dessert {
+    gap: 2.5rem;
+    max-height: 135rem;
+  }
+  .slide-section {
+    height: 135rem;
   }
 }
