@@ -53,6 +53,10 @@ function closeds() {
   }
 }
 button1.addEventListener("click", function () {
+  slideSection.style.marginBottom = 2 + "rem";
+  slideSection.style.height = 65.75 + "rem";
+  coffee.classList.remove("overflow");
+  refresh.style.display = "flex";
   menu1.classList.add("button-background-stay");
   icon1.classList.add("icon-background-stay");
   menu2.classList.remove("button-background-stay");
@@ -107,6 +111,10 @@ button2.addEventListener("click", function () {
 });
 
 button3.addEventListener("click", function () {
+  dessert.classList.remove("overflow");
+  slideSection.style.marginBottom = 2 + "rem";
+  slideSection.style.height = 65.75 + "rem";
+  refresh.style.display = "flex";
   menu3.classList.add("button-background-stay");
   icon3.classList.add("icon-background-stay");
   menu2.classList.remove("button-background-stay");
@@ -134,6 +142,26 @@ button3.addEventListener("click", function () {
   setTimeout(function () {
     slideSection.classList.remove("hight-slide");
   }, 300);
+});
+
+// refresh
+
+let refresh = document.querySelector(".refresh");
+
+refresh.addEventListener("click", function () {
+  refresh.style.display = "none";
+  let slide = slideSection.clientHeight;
+  setTimeout(function () {
+    coffee.classList.add("overflow");
+  }, 100);
+  setTimeout(function () {
+    tea.classList.add("overflow");
+  }, 100);
+  setTimeout(function () {
+    dessert.classList.add("overflow");
+  }, 100);
+  slideSection.style.height = slide * 2 + "px";
+  slideSection.style.marginBottom = 6.25 + "rem";
 });
 
 // modal

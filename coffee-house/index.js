@@ -242,6 +242,6 @@ window.addEventListener("resize", function () {
   if (window.innerWidth >= 768) {
     lock.classList.remove("lock");
     menu.classList.remove("active");
-    menuBtn.classList.remove("active");
+    menuBtn.classList.remove("фф");
   }
 });

@@ -988,6 +988,12 @@ h2 {
   }
 }
 @media (pointer: coarse) {
+  .menu-span {
+    margin-right: 2.5rem;
+  }
+  .coffe-sec1 {
+    opacity: 1;
+  }
   .nav-button-contact:hover:before {
     display: none !important;
   }
@@ -1067,11 +1073,12 @@ h2 {
     transform: scale(120%);
   }
   .up-button:hover > .section1-button > .menu-span {
-    margin-right: 0;
+    margin-right: 2.5;
   }
   .up-button:hover > .section1-button > .coffe-sec1 {
-    opacity: 0;
+    opacity: 1;
   }
+
   .nav-contact {
     gap: 1.5rem;
   }

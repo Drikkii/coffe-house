@@ -17,6 +17,10 @@ body {
   overflow-x: hidden;
   background-color: var(--body);
 }
+body.lock {
+  height: 100vh;
+  overflow: hidden;
+}
 
 /* ROOT */
 :root {
@@ -551,12 +555,12 @@ h1 {
   height: 31.625rem;
 }
 .section-coffee {
-  overflow: hidden;
   justify-content: space-around;
   margin: auto;
   position: absolute;
   opacity: 1;
   transition: 0.3s;
+  overflow: hidden;
   flex-wrap: wrap;
   display: flex;
   gap: 2.5rem;
@@ -662,6 +666,21 @@ h1 {
   font-style: normal;
   font-weight: 600;
   line-height: 125%; /* 30px */
+}
+
+/* refresh */
+
+.refresh {
+  cursor: pointer;
+  margin: 0 auto;
+  margin-bottom: 6.25rem;
+  border: 1px solid var(--Dark-border);
+  border-radius: 100px;
+  display: none;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
 }
 /* modal-window */
 .modal-window {
@@ -943,6 +962,9 @@ h1 {
 .hidden {
   display: none;
 }
+.overflow {
+  overflow: visible;
+}
 
 .icon-background {
   background-color: var(--body);
@@ -1036,9 +1058,9 @@ h1 {
     height: 37.125rem;
     width: 43rem;
   }
-  /* .slide-section {
-    height: 129rem;
-  } */
+  .slide-section {
+    margin-bottom: 2rem;
+  }
 }
 @media (pointer: coarse) {
   .nav-button-contact:hover:before {
@@ -1165,4 +1187,10 @@ h1 {
 }
 .nav-burger {
   padding: 0 1rem 3.75rem 1rem;
+}
+
+@media (max-width: 1060px) {
+  .refresh {
+    display: flex;
+  }
 }
