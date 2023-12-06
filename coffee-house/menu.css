@@ -1228,6 +1228,18 @@ h1 {
   }
 }
 @media (max-width: 678px) {
+  .nav-contact {
+    gap: 1.3rem;
+  }
+  .main-footer {
+    padding-bottom: 2.3rem;
+  }
+  .contact-title {
+    margin-bottom: 2.7rem;
+  }
+  .refresh {
+    margin-bottom: 5.5rem;
+  }
   .icon-contact {
     margin-bottom: 2.2rem;
   }
