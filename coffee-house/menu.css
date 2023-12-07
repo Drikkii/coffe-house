@@ -1213,6 +1213,9 @@ h1 {
 }
 
 @media (max-width: 1060px) {
+  .main-footer {
+    padding-bottom: 5rem;
+  }
   .slide-section {
     height: 65.75rem;
   }
@@ -1247,11 +1250,11 @@ h1 {
     padding-top: 0;
   }
   .section-coffee {
-    gap: 2.5rem;
+    gap: 2.3rem;
     max-height: 135rem;
   }
   .section-dessert {
-    gap: 2.5rem;
+    gap: 3rem;
     max-height: 135rem;
   }
   .slide-section {
