@@ -3,17 +3,17 @@
 let AppButton = document.querySelector(".download-app");
 let AppButtonIcon = document.querySelector(".apple");
 
-AppButton.addEventListener("mouseover", function () {
-  if (window.innerWidth >= 768) {
-    AppButtonIcon.classList.add("visualzero");
-    setTimeout(function () {
-      AppButtonIcon.classList.remove("visualzero");
-    }, 300);
-    setTimeout(function () {
-      AppButtonIcon.classList.add("apple-white");
-    }, 300);
-  }
-});
+// AppButton.addEventListener("mouseover", function () {
+//   if (window.innerWidth >= 768) {
+//     AppButtonIcon.classList.add("visualzero");
+//     setTimeout(function () {
+//       AppButtonIcon.classList.remove("visualzero");
+//     }, 300);
+//     setTimeout(function () {
+//       AppButtonIcon.classList.add("apple-white");
+//     }, 300);
+//   }
+// });
 AppButton.addEventListener("mouseout", function () {
   if (window.innerWidth >= 768) {
     setTimeout(function () {
@@ -29,17 +29,17 @@ AppButton.addEventListener("mouseout", function () {
 let GoogleButton = document.querySelector(".download-google");
 let GoogleButtonIcon = document.querySelector(".google");
 
-GoogleButton.addEventListener("mouseover", function () {
-  if (window.innerWidth >= 768) {
-    GoogleButtonIcon.classList.add("visualzero");
-    setTimeout(function () {
-      GoogleButtonIcon.classList.remove("visualzero");
-    }, 300);
-    setTimeout(function () {
-      GoogleButtonIcon.classList.add("google-white");
-    }, 300);
-  }
-});
+// GoogleButton.addEventListener("mouseover", function () {
+//   if (window.innerWidth >= 768) {
+//     GoogleButtonIcon.classList.add("visualzero");
+//     setTimeout(function () {
+//       GoogleButtonIcon.classList.remove("visualzero");
+//     }, 300);
+//     setTimeout(function () {
+//       GoogleButtonIcon.classList.add("google-white");
+//     }, 300);
+//   }
+// });
 
 GoogleButton.addEventListener("mouseout", function () {
   if (window.innerWidth >= 768) {
