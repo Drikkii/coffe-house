@@ -248,17 +248,14 @@ sliderSection.addEventListener("touchend", function (event) {
     const swipeX = swipeEndX - touchStart;
 
     if (swipeX > 0) {
-      console.log("свайп вправо");
       let PagBlack1 = document.querySelector(".color-pag .pag-color");
       PagBlack1.style.width = 0 + "%";
       prev();
     } else if (swipeX < 0) {
-      console.log("свайп влево");
       let PagBlack1 = document.querySelector(".color-pag .pag-color");
       PagBlack1.style.width = 0 + "%";
       next();
     } else {
-      console.log("нет свайпа");
     }
     isPaused = false;
     touchStart = undefined;
@@ -317,6 +314,6 @@ window.addEventListener("resize", function () {
   if (window.innerWidth >= 768) {
     lock.classList.remove("lock");
     menu.classList.remove("active");
-    menuBtn.classList.remove("фф");
+    menuBtn.classList.remove("active");
   }
 });
