@@ -524,13 +524,23 @@ h2 {
   justify-content: center;
 }
 .pagin {
+  position: relative;
+  display: block;
   cursor: pointer;
   background-color: var(--Light-border);
   border-radius: 6.25rem;
   height: 0.25rem;
   width: 2.5rem;
 }
-.color-pag {
+/* .color-pag {
+  background-color: var(--Dark-border);
+} */
+.pag-color,
+.pag-color,
+.pag-color {
+  border-radius: 6.25rem;
+  height: 0.25rem;
+  width: 0%;
   background-color: var(--Dark-border);
 }
 

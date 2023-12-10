@@ -78,9 +78,6 @@ button1.addEventListener("click", function () {
     refresh.style.display = "none";
     slideSection.style.marginBottom = 6.25 + "rem";
   }
-  // slideSection.style.marginBottom = 2 + "rem";
-  // slideSection.style.height = 65.75 + "rem";
-  // coffee.classList.remove("overflow");
 
   menu1.classList.add("button-background-stay");
   icon1.classList.add("icon-background-stay");
