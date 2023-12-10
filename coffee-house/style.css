@@ -229,13 +229,32 @@ main {
   margin: 0 2.5rem 6.25rem 2.5rem;
 }
 .main-section1 {
+  position: relative;
   border-radius: 2.5rem;
   width: 100%;
   background: center;
   background-size: cover;
   background-position-y: 1%;
   background-repeat: no-repeat;
-  background-image: url(../coffee-house/img/main-img.jpeg);
+  /* background-image: url(../coffee-house/img/main-img.jpeg); */
+}
+#myVideo {
+  object-fit: cover;
+  display: flex;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 2.5rem;
+  width: 100%;
+  height: 100%;
+}
+.video {
+  display: flex;
+  width: 100%;
+  height: 100%;
 }
 .section1-info {
   height: 100%;
@@ -524,13 +543,23 @@ h2 {
   justify-content: center;
 }
 .pagin {
+  position: relative;
+  display: block;
   cursor: pointer;
   background-color: var(--Light-border);
   border-radius: 6.25rem;
   height: 0.25rem;
   width: 2.5rem;
 }
-.color-pag {
+/* .color-pag {
+  background-color: var(--Dark-border);
+} */
+.pag-color,
+.pag-color,
+.pag-color {
+  border-radius: 6.25rem;
+  height: 0.25rem;
+  width: 0%;
   background-color: var(--Dark-border);
 }
 

@@ -3,17 +3,17 @@
 let AppButton = document.querySelector(".download-app");
 let AppButtonIcon = document.querySelector(".apple");
 
-// AppButton.addEventListener("mouseover", function () {
-//   if (window.innerWidth >= 768) {
-//     AppButtonIcon.classList.add("visualzero");
-//     setTimeout(function () {
-//       AppButtonIcon.classList.remove("visualzero");
-//     }, 300);
-//     setTimeout(function () {
-//       AppButtonIcon.classList.add("apple-white");
-//     }, 300);
-//   }
-// });
+AppButton.addEventListener("mouseover", function () {
+  if (window.innerWidth >= 768) {
+    AppButtonIcon.classList.add("visualzero");
+    setTimeout(function () {
+      AppButtonIcon.classList.remove("visualzero");
+    }, 300);
+    setTimeout(function () {
+      AppButtonIcon.classList.add("apple-white");
+    }, 300);
+  }
+});
 AppButton.addEventListener("mouseout", function () {
   if (window.innerWidth >= 768) {
     setTimeout(function () {
@@ -29,17 +29,17 @@ AppButton.addEventListener("mouseout", function () {
 let GoogleButton = document.querySelector(".download-google");
 let GoogleButtonIcon = document.querySelector(".google");
 
-// GoogleButton.addEventListener("mouseover", function () {
-//   if (window.innerWidth >= 768) {
-//     GoogleButtonIcon.classList.add("visualzero");
-//     setTimeout(function () {
-//       GoogleButtonIcon.classList.remove("visualzero");
-//     }, 300);
-//     setTimeout(function () {
-//       GoogleButtonIcon.classList.add("google-white");
-//     }, 300);
-//   }
-// });
+GoogleButton.addEventListener("mouseover", function () {
+  if (window.innerWidth >= 768) {
+    GoogleButtonIcon.classList.add("visualzero");
+    setTimeout(function () {
+      GoogleButtonIcon.classList.remove("visualzero");
+    }, 300);
+    setTimeout(function () {
+      GoogleButtonIcon.classList.add("google-white");
+    }, 300);
+  }
+});
 
 GoogleButton.addEventListener("mouseout", function () {
   if (window.innerWidth >= 768) {
@@ -51,23 +51,6 @@ GoogleButton.addEventListener("mouseout", function () {
     }, 300);
   }
 });
-GoogleButton.addEventListener("touchstart", function (e) {
-  TouchStart(e);
-  setTimeout(function () {
-    GoogleButtonIcon.classList.remove("visualzero");
-  }, 300);
-  setTimeout(function () {
-    GoogleButtonIcon.classList.remove("google-white");
-  }, 300);
-});
-// GoogleButton.addEventListener("touchstart", function () {
-//   setTimeout(function () {
-//     GoogleButtonIcon.classList.remove("visualzero");
-//   }, 300);
-//   setTimeout(function () {
-//     GoogleButtonIcon.classList.remove("google-white");
-//   }, 300);
-// });
 
 // Menu coffe cup visual
 
@@ -92,11 +75,17 @@ let Pag1 = document.querySelector(".pag1");
 let Pag2 = document.querySelector(".pag2");
 let Pag3 = document.querySelector(".pag3");
 
+let PagBlack2 = document.querySelector(".pag-color2");
+let PagBlack3 = document.querySelector(".pag-color3");
+
 let number = 0;
 let score = 0;
 let autoplayInterval = null;
 
 Pag1.addEventListener("click", function () {
+  counterValue = 0;
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  PagBlack1.style.width = 0 + "%";
   AllPag.forEach(function (element) {
     element.classList.remove("color-pag");
   });
@@ -105,6 +94,9 @@ Pag1.addEventListener("click", function () {
   mainSlider.style.left = number + "px";
 });
 Pag2.addEventListener("click", function () {
+  counterValue = 0;
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  PagBlack1.style.width = 0 + "%";
   AllPag.forEach(function (element) {
     element.classList.remove("color-pag");
   });
@@ -113,6 +105,9 @@ Pag2.addEventListener("click", function () {
   mainSlider.style.left = -number + "px";
 });
 Pag3.addEventListener("click", function () {
+  counterValue = 0;
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  PagBlack1.style.width = 0 + "%";
   AllPag.forEach(function (element) {
     element.classList.remove("color-pag");
   });
@@ -124,23 +119,53 @@ Pag3.addEventListener("click", function () {
 
 // auto
 
-function startAutoplay() {
-  if (!autoplayInterval) {
-    autoplayInterval = setInterval(next, 5000);
-    // mainSlider2.forEach(function (mainSlider2) {
-    //   mainSlider2.style.width = mainSlider3 + "px"
-    // });
+let counterValue = 0;
+let isInterval;
+let isUpdateCounterRunning = false;
+let savedCounterValue = 0;
+
+function interval() {
+  clearInterval(isInterval);
+  isInterval = setInterval(function () {
+    if (!isUpdateCounterRunning) {
+      isUpdateCounterRunning = true;
+      savedCounterValue = counterValue;
+      updateCounter();
+    }
+  }, 1);
+}
+
+function updateCounter() {
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  counterValue += 5;
+  savedCounterValue = counterValue;
+
+  const percentage = (counterValue / 5000) * 100;
+  PagBlack1.style.width = percentage.toFixed(2) + "%";
+
+  if (counterValue < 5000) {
+    setTimeout(function () {
+      isUpdateCounterRunning = false;
+      updateCounter;
+    }, 5);
+  } else if (counterValue >= 5000) {
+    clearInterval(isInterval);
+    savedCounterValue = counterValue;
+    isUpdateCounterRunning = false;
+
+    next();
   }
 }
 
-function stopAutoplay() {
-  clearInterval(autoplayInterval);
-  autoplayInterval = null;
-}
+// Запускаем счетчик
+interval();
+
 // slide prev - next
 
 let next = () => {
-  stopAutoplay();
+  counterValue = 0;
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  PagBlack1.style.width = 0 + "%";
   number = number + mainSlider3;
   mainSlider.style.left = -number + "px";
   if (number > mainSlider3 * 2) {
@@ -157,10 +182,13 @@ let next = () => {
   } else if (number == mainSlider3 * 2) {
     Pag3.classList.add("color-pag");
   }
-  startAutoplay();
+  interval();
 };
 let prev = () => {
-  stopAutoplay();
+  counterValue = 0;
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  PagBlack1.style.width = 0 + "%";
+
   number = number - mainSlider3;
   mainSlider.style.left = -number + "px";
   if (number < 0) {
@@ -177,18 +205,19 @@ let prev = () => {
   } else if (number == mainSlider3 * 2) {
     Pag3.classList.add("color-pag");
   }
-  startAutoplay();
+  interval();
 };
 
 rightArrow.addEventListener("click", next);
 leftArrow.addEventListener("click", prev);
 
 // auto
-startAutoplay();
 
 // adaptiv
 window.addEventListener("resize", function () {
-  stopAutoplay();
+  counterValue = 0;
+  let PagBlack1 = document.querySelector(".color-pag .pag-color");
+  PagBlack1.style.width = 0 + "%";
   AllPag.forEach(function (element) {
     element.classList.remove("color-pag");
   });
@@ -196,8 +225,51 @@ window.addEventListener("resize", function () {
   mainSlider3 = document.querySelector(".up-main-slider").clientWidth;
   mainSlider.style.left = 0 + "px";
   number = 0;
-  startAutoplay();
+  interval();
   return number;
+});
+
+// mobile
+
+let sliderSection = document.querySelector(".section2");
+
+sliderSection.addEventListener("touchstart", function (event) {
+  clearInterval(isInterval);
+  touchStart = event.touches[0].clientX;
+  isPaused = true;
+});
+
+sliderSection.addEventListener("touchend", function (event) {
+  if (!isUpdateCounterRunning) {
+    interval();
+  }
+  if (touchStart !== undefined) {
+    const swipeEndX = event.changedTouches[0].clientX;
+    const swipeX = swipeEndX - touchStart;
+
+    if (swipeX > 0) {
+      let PagBlack1 = document.querySelector(".color-pag .pag-color");
+      PagBlack1.style.width = 0 + "%";
+      prev();
+    } else if (swipeX < 0) {
+      let PagBlack1 = document.querySelector(".color-pag .pag-color");
+      PagBlack1.style.width = 0 + "%";
+      next();
+    } else {
+    }
+    isPaused = false;
+    touchStart = undefined;
+  }
+});
+
+// stopMouse
+sliderSection.addEventListener("mouseover", function () {
+  clearInterval(isInterval);
+});
+sliderSection.addEventListener("mouseout", function () {
+  if (!isUpdateCounterRunning) {
+    interval();
+  }
 });
 
 // burger
@@ -242,6 +314,6 @@ window.addEventListener("resize", function () {
   if (window.innerWidth >= 768) {
     lock.classList.remove("lock");
     menu.classList.remove("active");
-    menuBtn.classList.remove("фф");
+    menuBtn.classList.remove("active");
   }
 });
