@@ -139,7 +139,6 @@ function updateCounter() {
   let PagBlack1 = document.querySelector(".color-pag .pag-color");
   counterValue += 5;
   savedCounterValue = counterValue;
-  console.log(counterValue);
 
   const percentage = (counterValue / 5000) * 100;
   PagBlack1.style.width = percentage.toFixed(2) + "%";
@@ -235,11 +234,15 @@ window.addEventListener("resize", function () {
 let sliderSection = document.querySelector(".section2");
 
 sliderSection.addEventListener("touchstart", function (event) {
+  clearInterval(isInterval);
   touchStart = event.touches[0].clientX;
   isPaused = true;
 });
 
 sliderSection.addEventListener("touchend", function (event) {
+  if (!isUpdateCounterRunning) {
+    interval();
+  }
   if (touchStart !== undefined) {
     const swipeEndX = event.changedTouches[0].clientX;
     const swipeX = swipeEndX - touchStart;
