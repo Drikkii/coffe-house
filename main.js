@@ -115,18 +115,83 @@ function keyboardInit() {
 }
 keyboardInit();
 
+let array = [66, 65, 76, 76];
+
 document.onkeyup = function (event) {
-  attempts += 1;
   if (attempts > 6) {
     attempts = 0;
   }
-  attemptsHuman();
+  if (event.which === 66) {
+    document.querySelector(".word-1_1").classList.remove("hidden");
+    document.querySelector(".word-1_under-1").classList.add("hidden");
+  } else if (event.which === 83) {
+    document.querySelector(".word-2_1").classList.remove("hidden");
+    document.querySelector(".word-2_under-1").classList.add("hidden");
+  } else if (event.which === 85) {
+    document.querySelector(".word-2_2").classList.remove("hidden");
+    document.querySelector(".word-2_under-2").classList.add("hidden");
+    document.querySelector(".word-3_4").classList.remove("hidden");
+    document.querySelector(".word-3_under-4").classList.add("hidden");
+  } else if (event.which === 79) {
+    document.querySelector(".word-3_3").classList.remove("hidden");
+    document.querySelector(".word-3_under-3").classList.add("hidden");
+    document.querySelector(".word-4_2").classList.remove("hidden");
+    document.querySelector(".word-4_under-2").classList.add("hidden");
+  } else if (event.which === 76) {
+    document.querySelector(".word-1_3").classList.remove("hidden");
+    document.querySelector(".word-1_4").classList.remove("hidden");
+    document.querySelector(".word-1_under-3").classList.add("hidden");
+    document.querySelector(".word-1_under-4").classList.add("hidden");
+    document.querySelector(".word-3_2").classList.remove("hidden");
+    document.querySelector(".word-3_under-2").classList.add("hidden");
+    document.querySelector(".word-4_5").classList.remove("hidden");
+    document.querySelector(".word-4_under-5").classList.add("hidden");
+  } else if (event.which === 69) {
+    document.querySelector(".word-4_4").classList.remove("hidden");
+    document.querySelector(".word-4_under-4").classList.add("hidden");
+  } else if (event.which === 68) {
+    document.querySelector(".word-3_5").classList.remove("hidden");
+    document.querySelector(".word-3_under-5").classList.add("hidden");
+  } else if (event.which === 67) {
+    document.querySelector(".word-3_1").classList.remove("hidden");
+    document.querySelector(".word-3_under-1").classList.add("hidden");
+  } else if (event.which === 71) {
+    document.querySelector(".word-2_3").classList.remove("hidden");
+    document.querySelector(".word-2_under-3").classList.add("hidden");
+  } else if (event.which === 84) {
+    document.querySelector(".word-4_1").classList.remove("hidden");
+    document.querySelector(".word-4_under-1").classList.add("hidden");
+  } else if (event.which === 87) {
+    document.querySelector(".word-4_3").classList.remove("hidden");
+    document.querySelector(".word-4_under-3").classList.add("hidden");
+  } else if (event.which === 82) {
+    document.querySelector(".word-2_5").classList.remove("hidden");
+    document.querySelector(".word-2_under-5").classList.add("hidden");
+  } else if (event.which === 65) {
+    document.querySelector(".word-1_2").classList.remove("hidden");
+    document.querySelector(".word-1_under-2").classList.add("hidden");
+    document.querySelector(".word-2_4").classList.remove("hidden");
+    document.querySelector(".word-2_under-4").classList.add("hidden");
+  } else {
+    attempts += 1;
+    attemptsHuman();
+  }
   console.log(attempts);
   console.log(event.code);
   console.log(event.which);
   document
     .querySelector('.key-button[data="' + event.keyCode + '"]')
     .classList.add("active");
+  setTimeout(() => {
+    if (
+      !document.querySelector(".word-1_1").classList.contains("hidden") &&
+      !document.querySelector(".word-1_2").classList.contains("hidden") &&
+      !document.querySelector(".word-1_3").classList.contains("hidden") &&
+      !document.querySelector(".word-1_1").classList.contains("hidden")
+    ) {
+      alert("hi");
+    }
+  }, 200);
 };
 document.querySelectorAll(".key-button").forEach(function (element) {
   element.onclick = function (event) {
