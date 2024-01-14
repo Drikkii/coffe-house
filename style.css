@@ -38,25 +38,45 @@
   margin: auto;
 }
 .head-img {
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
   max-width: 100%;
   margin: auto;
 }
 .hand-body {
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
   max-width: 140px;
   display: flex;
 }
 .legs {
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
   max-width: 140px;
   display: flex;
 }
+.left-leg-img,
+.right-leg-img {
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
+}
 .left-hand-img,
 .right-hand-img {
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
   width: 100%;
   padding-top: 20%;
 }
-/* .body-img {
-  width: 100%;
-} */
+.body-img {
+  display: block;
+  opacity: 1;
+  transition: 0.5s;
+}
 
 /* section mystery-content */
 
@@ -80,12 +100,14 @@
 }
 
 .keyboard {
-  width: 70%;
+  justify-content: space-around;
+  width: 60%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
 }
 .key-button {
+  text-transform: uppercase;
   cursor: pointer;
   transition: 0.5s;
   color: white;
@@ -94,10 +116,14 @@
   text-align: center;
   margin-bottom: 10px;
   margin-right: 5px;
+
   gap: 10px;
   border-radius: 0.2rem;
   width: 10%;
   height: 20px;
+}
+.active {
+  background-color: crimson;
 }
 .key-button:hover {
   background-color: rgb(197, 74, 74);
@@ -182,6 +208,19 @@
   width: 18%;
   border-bottom: 3px solid black;
 }
+.red-count {
+  color: red;
+}
+
+/* filler category */
+
+.hidden {
+  display: none;
+}
+.visual {
+  opacity: 0;
+}
+
 /* media */
 
 @media (max-width: 1024px) {
