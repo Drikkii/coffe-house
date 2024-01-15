@@ -1,3 +1,18 @@
+body.lock {
+  height: 100vh;
+  overflow: hidden;
+}
+.backgrey {
+  z-index: 120;
+  transition: all 0.3s linear;
+  left: 0;
+  top: 0;
+  background-color: #312f2fa6;
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+}
+
 .main {
   padding: 2rem;
   display: flex;
@@ -123,7 +138,7 @@
   height: 20px;
 }
 .active {
-  background-color: crimson;
+  background-color: red;
 }
 .key-button:hover {
   background-color: rgb(197, 74, 74);
@@ -212,6 +227,49 @@
 .red-count {
   color: red;
 }
+.off {
+  cursor: not-allowed;
+}
+
+/* modal */
+.modal {
+  border: 2px solid black;
+  gap: 10px;
+  transition: 0.5s;
+  opacity: 1;
+  z-index: 125;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  display: flex;
+  width: 20%;
+  margin: auto;
+  height: 30%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 16px;
+  border-radius: 2.5rem;
+  background-color: black;
+}
+.finish,
+.answer,
+.new-game {
+  color: white;
+  font-size: clamp(0.5rem, 2.5vw, 5rem);
+  text-align: center;
+  width: 80%;
+  margin: auto;
+}
+.new-game {
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 1rem;
+  border: 2px solid red;
+}
+.new-game:hover {
+  background-color: red;
+}
 
 /* filler category */
 
@@ -220,6 +278,9 @@
 }
 .visual {
   opacity: 0;
+}
+.visualone {
+  opacity: 1;
 }
 
 /* media */

@@ -117,207 +117,354 @@ keyboardInit();
 
 let array = [66, 65, 76, 76];
 
-document.onkeyup = function (event) {
-  if (attempts > 6) {
-    attempts = 0;
-  }
-  if (event.which === 66) {
-    document.querySelector(".word-1_1").classList.remove("hidden");
-    document.querySelector(".word-1_under-1").classList.add("hidden");
-  } else if (event.which === 83) {
-    document.querySelector(".word-2_1").classList.remove("hidden");
-    document.querySelector(".word-2_under-1").classList.add("hidden");
-  } else if (event.which === 85) {
-    document.querySelector(".word-2_2").classList.remove("hidden");
-    document.querySelector(".word-2_under-2").classList.add("hidden");
-    document.querySelector(".word-3_4").classList.remove("hidden");
-    document.querySelector(".word-3_under-4").classList.add("hidden");
-  } else if (event.which === 79) {
-    document.querySelector(".word-3_3").classList.remove("hidden");
-    document.querySelector(".word-3_under-3").classList.add("hidden");
-    document.querySelector(".word-4_2").classList.remove("hidden");
-    document.querySelector(".word-4_under-2").classList.add("hidden");
-  } else if (event.which === 76) {
-    document.querySelector(".word-1_3").classList.remove("hidden");
-    document.querySelector(".word-1_4").classList.remove("hidden");
-    document.querySelector(".word-1_under-3").classList.add("hidden");
-    document.querySelector(".word-1_under-4").classList.add("hidden");
-    document.querySelector(".word-3_2").classList.remove("hidden");
-    document.querySelector(".word-3_under-2").classList.add("hidden");
-    document.querySelector(".word-4_5").classList.remove("hidden");
-    document.querySelector(".word-4_under-5").classList.add("hidden");
-  } else if (event.which === 69) {
-    document.querySelector(".word-4_4").classList.remove("hidden");
-    document.querySelector(".word-4_under-4").classList.add("hidden");
-  } else if (event.which === 68) {
-    document.querySelector(".word-3_5").classList.remove("hidden");
-    document.querySelector(".word-3_under-5").classList.add("hidden");
-  } else if (event.which === 67) {
-    document.querySelector(".word-3_1").classList.remove("hidden");
-    document.querySelector(".word-3_under-1").classList.add("hidden");
-  } else if (event.which === 71) {
-    document.querySelector(".word-2_3").classList.remove("hidden");
-    document.querySelector(".word-2_under-3").classList.add("hidden");
-  } else if (event.which === 84) {
-    document.querySelector(".word-4_1").classList.remove("hidden");
-    document.querySelector(".word-4_under-1").classList.add("hidden");
-  } else if (event.which === 87) {
-    document.querySelector(".word-4_3").classList.remove("hidden");
-    document.querySelector(".word-4_under-3").classList.add("hidden");
-  } else if (event.which === 82) {
-    document.querySelector(".word-2_5").classList.remove("hidden");
-    document.querySelector(".word-2_under-5").classList.add("hidden");
-  } else if (event.which === 65) {
-    document.querySelector(".word-1_2").classList.remove("hidden");
-    document.querySelector(".word-1_under-2").classList.add("hidden");
-    document.querySelector(".word-2_4").classList.remove("hidden");
-    document.querySelector(".word-2_under-4").classList.add("hidden");
-  } else {
-    attempts += 1;
-    attemptsHuman();
-  }
-  console.log(attempts);
-  console.log(event.code);
-  console.log(event.which);
-  document
-    .querySelector('.key-button[data="' + event.keyCode + '"]')
-    .classList.add("active");
-  setTimeout(() => {
-    if (
-      !document.querySelector(".word-1_1").classList.contains("hidden") &&
-      !document.querySelector(".word-1_2").classList.contains("hidden") &&
-      !document.querySelector(".word-1_3").classList.contains("hidden") &&
-      !document.querySelector(".word-1_1").classList.contains("hidden")
-    ) {
-      alert("hi");
-    } else if (
-      !document.querySelector(".word-2_1").classList.contains("hidden") &&
-      !document.querySelector(".word-2_2").classList.contains("hidden") &&
-      !document.querySelector(".word-2_3").classList.contains("hidden") &&
-      !document.querySelector(".word-2_4").classList.contains("hidden") &&
-      !document.querySelector(".word-2_5").classList.contains("hidden")
-    ) {
-      alert("hi");
-    } else if (
-      !document.querySelector(".word-3_1").classList.contains("hidden") &&
-      !document.querySelector(".word-3_2").classList.contains("hidden") &&
-      !document.querySelector(".word-3_3").classList.contains("hidden") &&
-      !document.querySelector(".word-3_4").classList.contains("hidden") &&
-      !document.querySelector(".word-3_5").classList.contains("hidden")
-    ) {
-      alert("hi");
-    } else if (
-      !document.querySelector(".word-4_1").classList.contains("hidden") &&
-      !document.querySelector(".word-4_2").classList.contains("hidden") &&
-      !document.querySelector(".word-4_3").classList.contains("hidden") &&
-      !document.querySelector(".word-4_4").classList.contains("hidden") &&
-      !document.querySelector(".word-4_5").classList.contains("hidden")
-    ) {
-      alert("hi");
+document.addEventListener("keydown", keydownHandler);
+
+function keydownHandler(event) {
+  const keyButton = document.querySelector(
+    '.key-button[data="' + event.keyCode + '"]'
+  );
+
+  if (keyButton) {
+    if (!keyButton.classList.contains("off")) {
+      keyButton.classList.add("off");
+
+      let code = event.code;
+      console.log(code);
+      if (
+        code === "KeyQ" ||
+        code === "KeyW" ||
+        code === "KeyE" ||
+        code === "KeyR" ||
+        code === "KeyT" ||
+        code === "KeyY" ||
+        code === "KeyU" ||
+        code === "KeyI" ||
+        code === "KeyO" ||
+        code === "KeyP" ||
+        code === "KeyA" ||
+        code === "KeyS" ||
+        code === "KeyD" ||
+        code === "KeyF" ||
+        code === "KeyG" ||
+        code === "KeyH" ||
+        code === "KeyJ" ||
+        code === "KeyK" ||
+        code === "KeyL" ||
+        code === "KeyZ" ||
+        code === "KeyX" ||
+        code === "KeyC" ||
+        code === "KeyV" ||
+        code === "KeyB" ||
+        code === "KeyN" ||
+        code === "KeyM"
+      ) {
+        if (attempts >= 5) {
+          document.removeEventListener("keydown", keydownHandler);
+          document.querySelector(".backgrey").classList.remove("hidden");
+          document.querySelector(".modal").classList.remove("hidden");
+          document.querySelector("body").classList.add("lock");
+          document.querySelector(".finish").innerHTML = "Loser";
+
+          setTimeout(() => {
+            document.querySelector(".backgrey").classList.remove("visual");
+            document.querySelector(".modal").classList.remove("visual");
+          }, 300);
+        }
+        if (event.which === 66) {
+          document.querySelector(".word-1_1").classList.remove("hidden");
+          document.querySelector(".word-1_under-1").classList.add("hidden");
+        } else if (event.which === 83) {
+          document.querySelector(".word-2_1").classList.remove("hidden");
+          document.querySelector(".word-2_under-1").classList.add("hidden");
+        } else if (event.which === 85) {
+          document.querySelector(".word-2_2").classList.remove("hidden");
+          document.querySelector(".word-2_under-2").classList.add("hidden");
+          document.querySelector(".word-3_4").classList.remove("hidden");
+          document.querySelector(".word-3_under-4").classList.add("hidden");
+        } else if (event.which === 79) {
+          document.querySelector(".word-3_3").classList.remove("hidden");
+          document.querySelector(".word-3_under-3").classList.add("hidden");
+          document.querySelector(".word-4_2").classList.remove("hidden");
+          document.querySelector(".word-4_under-2").classList.add("hidden");
+        } else if (event.which === 76) {
+          document.querySelector(".word-1_3").classList.remove("hidden");
+          document.querySelector(".word-1_4").classList.remove("hidden");
+          document.querySelector(".word-1_under-3").classList.add("hidden");
+          document.querySelector(".word-1_under-4").classList.add("hidden");
+          document.querySelector(".word-3_2").classList.remove("hidden");
+          document.querySelector(".word-3_under-2").classList.add("hidden");
+          document.querySelector(".word-4_5").classList.remove("hidden");
+          document.querySelector(".word-4_under-5").classList.add("hidden");
+        } else if (event.which === 69) {
+          document.querySelector(".word-4_4").classList.remove("hidden");
+          document.querySelector(".word-4_under-4").classList.add("hidden");
+        } else if (event.which === 68) {
+          document.querySelector(".word-3_5").classList.remove("hidden");
+          document.querySelector(".word-3_under-5").classList.add("hidden");
+        } else if (event.which === 67) {
+          document.querySelector(".word-3_1").classList.remove("hidden");
+          document.querySelector(".word-3_under-1").classList.add("hidden");
+        } else if (event.which === 71) {
+          document.querySelector(".word-2_3").classList.remove("hidden");
+          document.querySelector(".word-2_under-3").classList.add("hidden");
+        } else if (event.which === 84) {
+          document.querySelector(".word-4_1").classList.remove("hidden");
+          document.querySelector(".word-4_under-1").classList.add("hidden");
+        } else if (event.which === 87) {
+          document.querySelector(".word-4_3").classList.remove("hidden");
+          document.querySelector(".word-4_under-3").classList.add("hidden");
+        } else if (event.which === 82) {
+          document.querySelector(".word-2_5").classList.remove("hidden");
+          document.querySelector(".word-2_under-5").classList.add("hidden");
+        } else if (event.which === 65) {
+          document.querySelector(".word-1_2").classList.remove("hidden");
+          document.querySelector(".word-1_under-2").classList.add("hidden");
+          document.querySelector(".word-2_4").classList.remove("hidden");
+          document.querySelector(".word-2_under-4").classList.add("hidden");
+        } else {
+          attempts += 1;
+          if (attempts >= 6) {
+            document.querySelector(".backgrey").classList.remove("hidden");
+            document.querySelector(".modal").classList.remove("hidden");
+            document.querySelector("body").classList.add("lock");
+            document.querySelector(".finish").innerHTML = "Loser";
+
+            setTimeout(() => {
+              document.querySelector(".backgrey").classList.remove("visual");
+              document.querySelector(".modal").classList.remove("visual");
+            }, 300);
+          }
+          attemptsHuman();
+        }
+        // console.log(attempts);
+        // console.log(event.code);
+        // console.log(event.which);
+        document
+          .querySelector('.key-button[data="' + event.keyCode + '"]')
+          .classList.add("active");
+        setTimeout(() => {
+          if (
+            !document.querySelector(".word-1_1").classList.contains("hidden") &&
+            !document.querySelector(".word-1_2").classList.contains("hidden") &&
+            !document.querySelector(".word-1_3").classList.contains("hidden") &&
+            !document.querySelector(".word-1_1").classList.contains("hidden")
+          ) {
+            document.removeEventListener("keydown", keydownHandler);
+            document.querySelector(".backgrey").classList.remove("hidden");
+            document.querySelector(".modal").classList.remove("hidden");
+            document.querySelector("body").classList.add("lock");
+
+            setTimeout(() => {
+              document.querySelector(".backgrey").classList.remove("visual");
+              document.querySelector(".modal").classList.remove("visual");
+            }, 300);
+          } else if (
+            !document.querySelector(".word-2_1").classList.contains("hidden") &&
+            !document.querySelector(".word-2_2").classList.contains("hidden") &&
+            !document.querySelector(".word-2_3").classList.contains("hidden") &&
+            !document.querySelector(".word-2_4").classList.contains("hidden") &&
+            !document.querySelector(".word-2_5").classList.contains("hidden")
+          ) {
+            document.removeEventListener("keydown", keydownHandler);
+            document.querySelector(".backgrey").classList.remove("hidden");
+            document.querySelector(".modal").classList.remove("hidden");
+            document.querySelector("body").classList.add("lock");
+
+            setTimeout(() => {
+              document.querySelector(".backgrey").classList.remove("visual");
+              document.querySelector(".modal").classList.remove("visual");
+            }, 300);
+          } else if (
+            !document.querySelector(".word-3_1").classList.contains("hidden") &&
+            !document.querySelector(".word-3_2").classList.contains("hidden") &&
+            !document.querySelector(".word-3_3").classList.contains("hidden") &&
+            !document.querySelector(".word-3_4").classList.contains("hidden") &&
+            !document.querySelector(".word-3_5").classList.contains("hidden")
+          ) {
+            document.removeEventListener("keydown", keydownHandler);
+            document.querySelector(".backgrey").classList.remove("hidden");
+            document.querySelector(".modal").classList.remove("hidden");
+            document.querySelector("body").classList.add("lock");
+            setTimeout(() => {
+              document.querySelector(".backgrey").classList.remove("visual");
+              document.querySelector(".modal").classList.remove("visual");
+            }, 300);
+          } else if (
+            !document.querySelector(".word-4_1").classList.contains("hidden") &&
+            !document.querySelector(".word-4_2").classList.contains("hidden") &&
+            !document.querySelector(".word-4_3").classList.contains("hidden") &&
+            !document.querySelector(".word-4_4").classList.contains("hidden") &&
+            !document.querySelector(".word-4_5").classList.contains("hidden")
+          ) {
+            document.removeEventListener("keydown", keydownHandler);
+            document.querySelector(".backgrey").classList.remove("hidden");
+            document.querySelector(".modal").classList.remove("hidden");
+            document.querySelector("body").classList.add("lock");
+            setTimeout(() => {
+              document.querySelector(".backgrey").classList.remove("visual");
+              document.querySelector(".modal").classList.remove("visual");
+            }, 300);
+          }
+        }, 200);
+      } else {
+        alert("Не та буква");
+      }
     }
-  }, 200);
-};
+  }
+}
+
 document.querySelectorAll(".key-button").forEach(function (element) {
   element.onclick = function (event) {
-    document.querySelectorAll(".key-button").forEach(function () {});
     let code = this.getAttribute("data");
-    if (attempts > 6) {
-      attempts = 0;
-    }
-    if (this.getAttribute("data") == 66) {
-      document.querySelector(".word-1_1").classList.remove("hidden");
-      document.querySelector(".word-1_under-1").classList.add("hidden");
-    } else if (this.getAttribute("data") == 83) {
-      document.querySelector(".word-2_1").classList.remove("hidden");
-      document.querySelector(".word-2_under-1").classList.add("hidden");
-    } else if (this.getAttribute("data") == 85) {
-      document.querySelector(".word-2_2").classList.remove("hidden");
-      document.querySelector(".word-2_under-2").classList.add("hidden");
-      document.querySelector(".word-3_4").classList.remove("hidden");
-      document.querySelector(".word-3_under-4").classList.add("hidden");
-    } else if (this.getAttribute("data") == 79) {
-      document.querySelector(".word-3_3").classList.remove("hidden");
-      document.querySelector(".word-3_under-3").classList.add("hidden");
-      document.querySelector(".word-4_2").classList.remove("hidden");
-      document.querySelector(".word-4_under-2").classList.add("hidden");
-    } else if (this.getAttribute("data") == 76) {
-      document.querySelector(".word-1_3").classList.remove("hidden");
-      document.querySelector(".word-1_4").classList.remove("hidden");
-      document.querySelector(".word-1_under-3").classList.add("hidden");
-      document.querySelector(".word-1_under-4").classList.add("hidden");
-      document.querySelector(".word-3_2").classList.remove("hidden");
-      document.querySelector(".word-3_under-2").classList.add("hidden");
-      document.querySelector(".word-4_5").classList.remove("hidden");
-      document.querySelector(".word-4_under-5").classList.add("hidden");
-    } else if (this.getAttribute("data") == 69) {
-      document.querySelector(".word-4_4").classList.remove("hidden");
-      document.querySelector(".word-4_under-4").classList.add("hidden");
-    } else if (this.getAttribute("data") == 68) {
-      document.querySelector(".word-3_5").classList.remove("hidden");
-      document.querySelector(".word-3_under-5").classList.add("hidden");
-    } else if (this.getAttribute("data") == 67) {
-      document.querySelector(".word-3_1").classList.remove("hidden");
-      document.querySelector(".word-3_under-1").classList.add("hidden");
-    } else if (this.getAttribute("data") == 71) {
-      document.querySelector(".word-2_3").classList.remove("hidden");
-      document.querySelector(".word-2_under-3").classList.add("hidden");
-    } else if (this.getAttribute("data") == 84) {
-      document.querySelector(".word-4_1").classList.remove("hidden");
-      document.querySelector(".word-4_under-1").classList.add("hidden");
-    } else if (this.getAttribute("data") == 87) {
-      document.querySelector(".word-4_3").classList.remove("hidden");
-      document.querySelector(".word-4_under-3").classList.add("hidden");
-    } else if (this.getAttribute("data") == 82) {
-      document.querySelector(".word-2_5").classList.remove("hidden");
-      document.querySelector(".word-2_under-5").classList.add("hidden");
-    } else if (this.getAttribute("data") == 65) {
-      document.querySelector(".word-1_2").classList.remove("hidden");
-      document.querySelector(".word-1_under-2").classList.add("hidden");
-      document.querySelector(".word-2_4").classList.remove("hidden");
-      document.querySelector(".word-2_under-4").classList.add("hidden");
-    } else {
-      attempts += 1;
-      attemptsHuman();
-    }
-    setTimeout(() => {
-      if (
-        !document.querySelector(".word-1_1").classList.contains("hidden") &&
-        !document.querySelector(".word-1_2").classList.contains("hidden") &&
-        !document.querySelector(".word-1_3").classList.contains("hidden") &&
-        !document.querySelector(".word-1_1").classList.contains("hidden")
-      ) {
-        alert("hi");
-      } else if (
-        !document.querySelector(".word-2_1").classList.contains("hidden") &&
-        !document.querySelector(".word-2_2").classList.contains("hidden") &&
-        !document.querySelector(".word-2_3").classList.contains("hidden") &&
-        !document.querySelector(".word-2_4").classList.contains("hidden") &&
-        !document.querySelector(".word-2_5").classList.contains("hidden")
-      ) {
-        alert("hi");
-      } else if (
-        !document.querySelector(".word-3_1").classList.contains("hidden") &&
-        !document.querySelector(".word-3_2").classList.contains("hidden") &&
-        !document.querySelector(".word-3_3").classList.contains("hidden") &&
-        !document.querySelector(".word-3_4").classList.contains("hidden") &&
-        !document.querySelector(".word-3_5").classList.contains("hidden")
-      ) {
-        alert("hi");
-      } else if (
-        !document.querySelector(".word-4_1").classList.contains("hidden") &&
-        !document.querySelector(".word-4_2").classList.contains("hidden") &&
-        !document.querySelector(".word-4_3").classList.contains("hidden") &&
-        !document.querySelector(".word-4_4").classList.contains("hidden") &&
-        !document.querySelector(".word-4_5").classList.contains("hidden")
-      ) {
-        alert("hi");
+    const keyButton = document.querySelector(
+      '.key-button[data="' + code + '"]'
+    );
+
+    // Проверяем, есть ли у кнопки класс "off"
+    if (keyButton && !keyButton.classList.contains("off")) {
+      keyButton.classList.add("off");
+
+      if (attempts >= 6) {
+        document.removeEventListener("keydown", keydownHandler);
+        document.querySelector(".backgrey").classList.remove("hidden");
+        document.querySelector(".modal").classList.remove("hidden");
+        document.querySelector("body").classList.add("lock");
+        document.querySelector(".finish").innerHTML = "Loser";
+
+        setTimeout(() => {
+          document.querySelector(".backgrey").classList.remove("visual");
+          document.querySelector(".modal").classList.remove("visual");
+        }, 300);
       }
-    }, 200);
+      if (this.getAttribute("data") == 66) {
+        document.querySelector(".word-1_1").classList.remove("hidden");
+        document.querySelector(".word-1_under-1").classList.add("hidden");
+      } else if (this.getAttribute("data") == 83) {
+        document.querySelector(".word-2_1").classList.remove("hidden");
+        document.querySelector(".word-2_under-1").classList.add("hidden");
+      } else if (this.getAttribute("data") == 85) {
+        document.querySelector(".word-2_2").classList.remove("hidden");
+        document.querySelector(".word-2_under-2").classList.add("hidden");
+        document.querySelector(".word-3_4").classList.remove("hidden");
+        document.querySelector(".word-3_under-4").classList.add("hidden");
+      } else if (this.getAttribute("data") == 79) {
+        document.querySelector(".word-3_3").classList.remove("hidden");
+        document.querySelector(".word-3_under-3").classList.add("hidden");
+        document.querySelector(".word-4_2").classList.remove("hidden");
+        document.querySelector(".word-4_under-2").classList.add("hidden");
+      } else if (this.getAttribute("data") == 76) {
+        document.querySelector(".word-1_3").classList.remove("hidden");
+        document.querySelector(".word-1_4").classList.remove("hidden");
+        document.querySelector(".word-1_under-3").classList.add("hidden");
+        document.querySelector(".word-1_under-4").classList.add("hidden");
+        document.querySelector(".word-3_2").classList.remove("hidden");
+        document.querySelector(".word-3_under-2").classList.add("hidden");
+        document.querySelector(".word-4_5").classList.remove("hidden");
+        document.querySelector(".word-4_under-5").classList.add("hidden");
+      } else if (this.getAttribute("data") == 69) {
+        document.querySelector(".word-4_4").classList.remove("hidden");
+        document.querySelector(".word-4_under-4").classList.add("hidden");
+      } else if (this.getAttribute("data") == 68) {
+        document.querySelector(".word-3_5").classList.remove("hidden");
+        document.querySelector(".word-3_under-5").classList.add("hidden");
+      } else if (this.getAttribute("data") == 67) {
+        document.querySelector(".word-3_1").classList.remove("hidden");
+        document.querySelector(".word-3_under-1").classList.add("hidden");
+      } else if (this.getAttribute("data") == 71) {
+        document.querySelector(".word-2_3").classList.remove("hidden");
+        document.querySelector(".word-2_under-3").classList.add("hidden");
+      } else if (this.getAttribute("data") == 84) {
+        document.querySelector(".word-4_1").classList.remove("hidden");
+        document.querySelector(".word-4_under-1").classList.add("hidden");
+      } else if (this.getAttribute("data") == 87) {
+        document.querySelector(".word-4_3").classList.remove("hidden");
+        document.querySelector(".word-4_under-3").classList.add("hidden");
+      } else if (this.getAttribute("data") == 82) {
+        document.querySelector(".word-2_5").classList.remove("hidden");
+        document.querySelector(".word-2_under-5").classList.add("hidden");
+      } else if (this.getAttribute("data") == 65) {
+        document.querySelector(".word-1_2").classList.remove("hidden");
+        document.querySelector(".word-1_under-2").classList.add("hidden");
+        document.querySelector(".word-2_4").classList.remove("hidden");
+        document.querySelector(".word-2_under-4").classList.add("hidden");
+      } else {
+        attempts += 1;
+        if (attempts >= 6) {
+          document.querySelector(".backgrey").classList.remove("hidden");
+          document.querySelector(".modal").classList.remove("hidden");
+          document.querySelector("body").classList.add("lock");
+          document.querySelector(".finish").innerHTML = "Loser";
+
+          setTimeout(() => {
+            document.querySelector(".backgrey").classList.remove("visual");
+            document.querySelector(".modal").classList.remove("visual");
+          }, 300);
+        }
+        attemptsHuman();
+      }
+      setTimeout(() => {
+        if (
+          !document.querySelector(".word-1_1").classList.contains("hidden") &&
+          !document.querySelector(".word-1_2").classList.contains("hidden") &&
+          !document.querySelector(".word-1_3").classList.contains("hidden") &&
+          !document.querySelector(".word-1_1").classList.contains("hidden")
+        ) {
+          document.removeEventListener("keydown", keydownHandler);
+          document.querySelector(".backgrey").classList.remove("hidden");
+          document.querySelector(".modal").classList.remove("hidden");
+          document.querySelector("body").classList.add("lock");
+          setTimeout(() => {
+            document.querySelector(".backgrey").classList.remove("visual");
+            document.querySelector(".modal").classList.remove("visual");
+          }, 300);
+        } else if (
+          !document.querySelector(".word-2_1").classList.contains("hidden") &&
+          !document.querySelector(".word-2_2").classList.contains("hidden") &&
+          !document.querySelector(".word-2_3").classList.contains("hidden") &&
+          !document.querySelector(".word-2_4").classList.contains("hidden") &&
+          !document.querySelector(".word-2_5").classList.contains("hidden")
+        ) {
+          document.removeEventListener("keydown", keydownHandler);
+          document.querySelector(".backgrey").classList.remove("hidden");
+          document.querySelector(".modal").classList.remove("hidden");
+          document.querySelector("body").classList.add("lock");
+          setTimeout(() => {
+            document.querySelector(".backgrey").classList.remove("visual");
+            document.querySelector(".modal").classList.remove("visual");
+          }, 300);
+        } else if (
+          !document.querySelector(".word-3_1").classList.contains("hidden") &&
+          !document.querySelector(".word-3_2").classList.contains("hidden") &&
+          !document.querySelector(".word-3_3").classList.contains("hidden") &&
+          !document.querySelector(".word-3_4").classList.contains("hidden") &&
+          !document.querySelector(".word-3_5").classList.contains("hidden")
+        ) {
+          document.removeEventListener("keydown", keydownHandler);
+          document.querySelector(".backgrey").classList.remove("hidden");
+          document.querySelector(".modal").classList.remove("hidden");
+          document.querySelector("body").classList.add("lock");
+          setTimeout(() => {
+            document.querySelector(".backgrey").classList.remove("visual");
+            document.querySelector(".modal").classList.remove("visual");
+          }, 300);
+        } else if (
+          !document.querySelector(".word-4_1").classList.contains("hidden") &&
+          !document.querySelector(".word-4_2").classList.contains("hidden") &&
+          !document.querySelector(".word-4_3").classList.contains("hidden") &&
+          !document.querySelector(".word-4_4").classList.contains("hidden") &&
+          !document.querySelector(".word-4_5").classList.contains("hidden")
+        ) {
+          document.removeEventListener("keydown", keydownHandler);
+          document.querySelector(".backgrey").classList.remove("hidden");
+          document.querySelector(".modal").classList.remove("hidden");
+          document.querySelector("body").classList.add("lock");
+          setTimeout(() => {
+            document.querySelector(".backgrey").classList.remove("visual");
+            document.querySelector(".modal").classList.remove("visual");
+          }, 300);
+        }
+      }, 200);
+    }
     this.classList.add("active");
   };
 });
-
-// document.onkeyup = function (event) {
-//   keyboard.push(event.which);
-//   console.log(keyboard);
-// };
