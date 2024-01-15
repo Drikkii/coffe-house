@@ -105,8 +105,6 @@ body.lock {
 }
 .content-Riddles {
   padding: 1rem;
-  padding-top: 3rem;
-  margin-left: 4rem;
   gap: 50px;
   display: grid;
   flex-wrap: wrap;
@@ -193,9 +191,11 @@ body.lock {
   color: red;
   font-size: clamp(1.5rem, 2.5vw, 5rem);
   /* opacity: 0; */
-
   margin: auto;
   display: block;
+}
+.checkstatus {
+  font-size: clamp(0.5rem, 2vw, 4rem);
 }
 
 .underline {
@@ -203,21 +203,7 @@ body.lock {
   width: 15%;
   border-bottom: 3px solid black;
 }
-.underline-2 {
-  margin: auto;
-  width: 18%;
-  border-bottom: 3px solid black;
-}
-.underline-3 {
-  margin: auto;
-  width: 18%;
-  border-bottom: 3px solid black;
-}
-.underline-4 {
-  margin: auto;
-  width: 18%;
-  border-bottom: 3px solid black;
-}
+
 .red-count {
   color: red;
 }
@@ -270,9 +256,9 @@ body.lock {
 .hidden {
   display: none;
 }
-.visual {
+/* .visual {
   opacity: 0;
-}
+} */
 .visualone {
   opacity: 1;
 }
@@ -291,15 +277,15 @@ body.lock {
   .left-hand-img,
   .right-hand-img,
   .hand-body {
-    height: 60px;
-    max-width: 60px;
+    height: 78px;
+    max-width: 78px;
   }
   .legs {
-    height: 62px;
-    max-width: 62px;
+    height: 79px;
+    max-width: 79px;
   }
   .head {
-    width: 100px;
+    width: 135px;
   }
 }
 @media (max-width: 800px) {
@@ -319,15 +305,15 @@ body.lock {
   .left-hand-img,
   .right-hand-img,
   .hand-body {
-    height: 50px;
-    max-width: 50px;
+    height: 55px;
+    max-width: 55px;
   }
   .legs {
-    height: 52px;
-    max-width: 52px;
+    height: 58px;
+    max-width: 58px;
   }
   .head {
-    width: 80px;
+    width: 90px;
   }
 }
 @media (max-width: 650px) {
@@ -347,15 +333,15 @@ body.lock {
   .left-hand-img,
   .right-hand-img,
   .hand-body {
-    height: 40px;
-    max-width: 40px;
+    height: 47px;
+    max-width: 47px;
   }
   .legs {
-    height: 42px;
-    max-width: 42px;
+    height: 49px;
+    max-width: 49px;
   }
   .head {
-    width: 70px;
+    width: 78px;
   }
   .human {
     left: 62%;
@@ -392,15 +378,15 @@ body.lock {
   .left-hand-img,
   .right-hand-img,
   .hand-body {
-    height: 25px;
-    max-width: 25px;
+    height: 33px;
+    max-width: 33px;
   }
   .legs {
-    height: 26px;
-    max-width: 26px;
+    height: 34px;
+    max-width: 34px;
   }
   .head {
-    width: 43px;
+    width: 55px;
   }
   .human {
     left: 60%;

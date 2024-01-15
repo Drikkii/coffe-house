@@ -1,11 +1,70 @@
 // generate page
 
-// const body = document.querySelector(".body");
-// function pageGenerate() {
-//   body.innerHTML =
-//     '<main class="main"> <div class="all-content"> <section class="guillotine"> <div class="guillotine-human"> <div class="human"> <div class="head"> <img class="head-img" src="img/head.svg" alt="head" /> </div> <div class="hand-body"> <img class="left-hand-img" src="img/hand-one.png" alt="hand-one" /> <img class="body-img" src="img/body.png" alt="body" /> <img class="right-hand-img" src="img/hand-two.png" alt="hand-two" /> </div> <div class="legs"> <img class="left-leg-img" src="img/leg-one.png" alt="leg" /> <img class="right-leg-img" src="img/leg-two.png" alt="leg" /> </div> </div> <img class="img-guillotine" src="img/gallows.png" alt="guillotine" /> <div class="line"></div> <div class="hame-name">HANGMAN GAME</div> </div> </section> <section class="mystery"> <div class="mystery-content"> <div class="generate-1"> <div class="word"> <div class="word-1"> <div class="letter">B</div> <div class="letter">A</div> <div class="letter">L</div> <div class="letter">L</div> <div class="underline"></div> <div class="underline"></div> <div class="underline"></div> <div class="underline"></div> </div> </div> <div class="mystery-text"> It is blue and green, and red, It bounces higher than my head, It does not want to stop at all. What is it? It is my… </div> </div> <div class="generate-2"> <div class="word"> <div class="word-2"> <div class="letter-2">S</div> <div class="letter-2">U</div> <div class="letter-2">G</div> <div class="letter-2">A</div> <div class="letter-2">R</div> <div class="underline-2"></div> <div class="underline-2"></div> <div class="underline-2"></div> <div class="underline-2"></div> <div class="underline-2"></div> </div> </div> <div class="mystery-text"> Clean, but not water, White, but not snow, Sweet, but not ice-cream, What is it? </div> </div> <div class="generate-3"> <div class="word"> <div class="word-3"> <div class="letter-3">C</div> <div class="letter-3">L</div> <div class="letter-3">O</div> <div class="letter-3">U</div> <div class="letter-3">D</div> <div class="underline-3"></div> <div class="underline-3"></div> <div class="underline-3"></div> <div class="underline-3"></div> <div class="underline-3"></div> </div> </div> <div class="mystery-text"> I fly, yet I have no wings. I cry, yet I have no eyes. Darkness follows me; Lower light I never see. </div> </div> <div class="generate-4"> <div class="word"> <div class="word-4"> <div class="letter-3">T</div> <div class="letter-3">O</div> <div class="letter-3">W</div> <div class="letter-3">E</div> <div class="letter-3">L</div> <div class="underline-3"></div> <div class="underline-3"></div> <div class="underline-3"></div> <div class="underline-3"></div> <div class="underline-3"></div> </div> </div> <div class="mystery-text"> What gets wetter and wetter the more it dries? </div> </div> <div class="attempts"> Incorrect guesses <span class="red-count"><span class="counter">0 </span>/ 6 </span> </div> <div class="keyboard"> <div class="first-row"> <div class="key-button first-line">A</div> <div class="key-button">B</div> <div class="key-button">C</div> <div class="key-button">D</div> <div class="key-button">E</div> <div class="key-button">F</div> <div class="key-button">G</div> <div class="key-button">H</div> <div class="key-button last-line">I</div> </div> <div class="second-row"> <div class="key-button first-line">J</div> <div class="key-button">K</div> <div class="key-button">L</div> <div class="key-button">M</div> <div class="key-button">N</div> <div class="key-button">O</div> <div class="key-button">P</div> <div class="key-button">Q</div> <div class="key-button last-line">R</div> </div> <div class="thrid-row"> <div class="key-button first-line">S</div> <div class="key-button">T</div> <div class="key-button">U</div> <div class="key-button">W</div> <div class="key-button">X</div> <div class="key-button">Y</div> <div class="key-button last-line">Z</div> </div> </div> </div> </section> </div> </main>';
-// }
-// pageGenerate();
+const body = document.querySelector(".body");
+function pageGenerate() {
+  body.innerHTML = `<main class="main">
+  <div class="all-content">
+    <section class="guillotine">
+      <div class="guillotine-human">
+        <div class="human">
+          <div class="head">
+            <img class="head-img visual" src="img/head.svg" alt="head" />
+          </div>
+          <div class="hand-body">
+            <img
+              class="left-hand-img visual"
+              src="img/hand-one.png"
+              alt="hand-one"
+            />
+            <img class="body-img visual" src="img/body.png" alt="body" />
+            <img
+              class="right-hand-img visual"
+              src="img/hand-two.png"
+              alt="hand-two"
+            />
+          </div>
+          <div class="legs">
+            <img
+              class="left-leg-img visual"
+              src="img/leg-one.png"
+              alt="leg"
+            />
+            <img
+              class="right-leg-img visual"
+              src="img/leg-two.png"
+              alt="leg"
+            />
+          </div>
+        </div>
+        <img
+          class="img-guillotine"
+          src="img/gallows.png"
+          alt="guillotine"
+        />
+        <div class="line"></div>
+        <div class="hame-name">HANGMAN GAME</div>
+      </div>
+    </section>
+    <section class="mystery">
+      <div class="mystery-content">
+        <div class="content-Riddles"></div>
+        <div class="attempts">
+          Incorrect guesses
+          <span class="red-count"><span class="counter">0 </span>/ 6 </span>
+        </div>
+        <div class="keyboard"></div>
+      </div>
+    </section>
+  </div>
+</main>
+<div class="backgrey visual hidden"></div>
+<section class="modal visual hidden">
+  <div class="finish">Winner</div>
+  <div class="answer">Answer : <span class="ans">BALL</span></div>
+  <div class="new-game">New game</div>
+</section>`;
+}
+pageGenerate();
 
 // attempts;
 const counter = document.querySelector(".counter");
@@ -231,13 +290,13 @@ function refresh() {
     leftlegHuman.classList.add("visual");
     rightlegHuman.classList.add("visual");
   });
+
   return openContain;
 }
 refresh();
 
 const newGame = document.querySelector(".new-game");
 newGame.addEventListener("click", function () {
-  console.log(countGame);
   if (countGame >= 4) {
     location.reload();
   }
@@ -368,7 +427,7 @@ function keydownHandler(event) {
         code === "KeyN" ||
         code === "KeyM"
       ) {
-        if (attempts >= 5) {
+        if (attempts >= 6) {
           document.removeEventListener("keydown", keydownHandler);
           document.querySelector(".backgrey").classList.remove("hidden");
           document.querySelector(".modal").classList.remove("hidden");
@@ -494,6 +553,7 @@ function keydownHandler(event) {
           document.querySelector(".backgrey").classList.remove("hidden");
           document.querySelector(".modal").classList.remove("hidden");
           document.querySelector("body").classList.add("lock");
+          document.querySelector(".finish").innerHTML = "Winner";
 
           setTimeout(() => {
             document.querySelector(".backgrey").classList.remove("visual");
@@ -639,6 +699,7 @@ document.querySelectorAll(".key-button").forEach(function (element) {
         document.querySelector(".backgrey").classList.remove("hidden");
         document.querySelector(".modal").classList.remove("hidden");
         document.querySelector("body").classList.add("lock");
+        document.querySelector(".finish").innerHTML = "Winner";
 
         setTimeout(() => {
           document.querySelector(".backgrey").classList.remove("visual");
