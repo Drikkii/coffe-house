@@ -103,6 +103,14 @@ body.lock {
   display: grid;
   flex-wrap: wrap;
 }
+.content-Riddles {
+  padding: 1rem;
+  padding-top: 3rem;
+  margin-left: 4rem;
+  gap: 50px;
+  display: grid;
+  flex-wrap: wrap;
+}
 .mystery-text {
   margin: auto;
   margin-top: 1rem;
@@ -169,44 +177,30 @@ body.lock {
 .word-4 {
   text-align: center;
   width: 100%;
-  display: flex;
+  display: block;
   flex-wrap: wrap;
+}
+.lett {
+  width: 100%;
+  display: flex;
+}
+.under {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
 }
 .letter {
   color: red;
   font-size: clamp(1.5rem, 2.5vw, 5rem);
   /* opacity: 0; */
-  width: 24%;
+
   margin: auto;
   display: block;
 }
-.letter-2 {
-  color: red;
-  font-size: clamp(0.7rem, 2vw, 4rem);
-  /* opacity: 0; */
-  width: 18%;
-  margin: auto;
-  display: block;
-}
-.letter-3 {
-  color: red;
-  font-size: clamp(0.7rem, 2vw, 4rem);
-  /* opacity: 0; */
-  width: 18%;
-  margin: auto;
-  display: block;
-}
-.letter-4 {
-  color: red;
-  font-size: clamp(0.7rem, 2vw, 4rem);
-  /* opacity: 0; */
-  width: 18%;
-  margin: auto;
-  display: block;
-}
+
 .underline {
   margin: auto;
-  width: 24%;
+  width: 15%;
   border-bottom: 3px solid black;
 }
 .underline-2 {
@@ -282,7 +276,9 @@ body.lock {
 .visualone {
   opacity: 1;
 }
-
+.underline.visual2 {
+  opacity: 0;
+}
 /* media */
 
 @media (max-width: 1024px) {
